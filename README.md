@@ -50,21 +50,21 @@ To automate and standardize the ingestion, profiling, and management of academic
 ---
 
 ## Deliverables
-- ✅ Amazon S3 structured folders with data
-- ✅ System architecture diagram
-- ✅ Entity-relationship mapping (ERD logic)
-- ✅ Screenshots of all key steps
+- Amazon S3 structured folders with data
+- System architecture diagram
+- Entity-relationship mapping (ERD logic)
+- Screenshots of all key steps
 
 ---
 
-## 🖼️ Screenshots to Include
+## Screenshots to Include
 - PowerShell commands (Write-S3Object)
 - S3 bucket folder structures
 - Architecture diagram showing EC2, S3, users, datasets
 
 ---
 
-## 🧠 Key Learning Outcomes
+## Key Learning Outcomes
 - Designed and implemented a cloud-native data ingestion pipeline
 - Applied institutional policy (UCW Procedure 5051p) to technical workflows
 - Practiced automation and secure AWS storage
@@ -72,7 +72,7 @@ To automate and standardize the ingestion, profiling, and management of academic
 
 ---
 
-## 📁 Repository Structure (Suggested)
+## Repository Structure (Suggested)
 ```
 ├── data-samples/
 │   ├── Student_Information_List.csv
@@ -91,7 +91,7 @@ To automate and standardize the ingestion, profiling, and management of academic
 
 ---
 
-# Project 2: 🧹 Data Wrangling for Academic Accommodations (Procedure 5051p)
+# Project 2:  Data Wrangling for Academic Accommodations (Procedure 5051p)
 
 ## Project Title  
 **Data Wrangling for Academic Accommodation and Appeal Records Using AWS (Procedure 5051p Compliance)**
@@ -173,11 +173,10 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ## Deliverables  
 
-- ✅ A fully cleaned and consolidated academic accommodations dataset (CSV format)  
-- ✅ Glue DataBrew recipes for cleaning, profiling, and transformation  
-- ✅ ERD and AWS architecture diagrams  
-- ✅ Data quality reports and heatmaps  
-- ✅ Summary document explaining all wrangling steps and validation results  
+- A fully cleaned and consolidated academic accommodations dataset (CSV format)  
+- Glue DataBrew recipes for cleaning, profiling, and transformation  
+- ERD and AWS architecture diagrams  
+- Data quality reports and heatmaps   
 
 ---
 
