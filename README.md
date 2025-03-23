@@ -1,4 +1,4 @@
-# Migration of UCW to AWS Cloud
+# Auotomated Data Ingestion As a Part of Migration of UCW to AWS Cloud
 # Project 1: Automated Data Ingestion for Academic Accommodation for Students with Accessibility Needs at UCW (5051 p)
 
 
@@ -202,7 +202,7 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ---
 
-
+# Data Cataloging
 # Project 3: Automated Academic Accommodation Data Cataloging (Procedure 5051p)
 
 
@@ -286,3 +286,100 @@ Included:
 - DataBrew profiles
 - Crawler outputs
 - S3 output reports
+---
+# Data Analysis for Capital Budget Forecasting – City of Vancouver
+
+## Project 4: Capital Budget Forecast Analysis for the City of Vancouver Using AWS Athena
+
+## Objective:  
+The primary goal of this project is to analyze the City of Vancouver’s multi-year capital budget data to extract actionable insights for strategic financial planning. Using Amazon Athena, the project delivers in-depth evaluations of spending priorities, funding distributions, and partner contributions for capital projects planned between 2024 and 2026.
+
+## Background:  
+The City of Vancouver allocates substantial resources to long-term capital projects, including infrastructure, housing, and public amenities. Understanding where and how these funds are distributed is critical for effective governance and transparency. This project enables high-level analysis using serverless SQL querying via Amazon Athena, offering fast, flexible access to clean budget datasets stored on AWS.
+
+## Dataset:  
+The analysis uses the following dataset:
+
+- **2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget**  
+  Key fields include:  
+  • `projectprogramname`  
+  • `annualcapitalexpenditure2024capitalexpenditurebudget`  
+  • `annualcapitalexpenditure2025forecast`  
+  • `forecast_2026`  
+  • `funding_source`  
+  • `partner_contribution`  
+  • `approved_budget` vs `requested_budget`
+
+## Methodology:
+
+### 1– Data Collection:  
+- The dataset was accessed through AWS Athena after being cataloged in AWS Glue.  
+- Database: `budgetrequest-catalog-my`  
+- Tables: `budgetrequest-trf_system`, `budgetrequest-metrics`  
+- Query results were stored in `s3://budgetrequest-cur-my`.
+
+### 2– Data Analysis Strategy:  
+The following queries were performed using SQL in Athena:
+
+- **Most Expensive Capital Projects (2024 & 2025):**  
+  Identified top-budgeted projects by sorting 2024 actuals and 2025 forecasts in descending order.  
+  📍 *Results:*  
+  - 2024: *2023–2026 Housing Land Acquisition* – ~$39.82M  
+  - 2025: *PNE Amphitheatre* – ~$74.98M  
+
+- **Forecasted Expenditure Trends (2024–2026):**  
+  Analyzed budget allocations across the top 10 projects for three consecutive years to identify trend patterns.  
+  📍 *Top Projects:*  
+  - Housing Land Acquisition  
+  - Coal Harbour – Housing  
+  - PNE Amphitheatre
+
+- **Comparative Budget Analysis (Requested vs Approved – 2024):**  
+  Compared the difference between newly requested and previously approved budgets for each project.  
+  📍 *Key Insights:*  
+  - Significant increases seen in *New Land for Parks*, *Distribution Main Replacement*, and *Drinking Water Demand Management*.  
+  - New projects like *Permanent Public Plazas* had no prior funding but received large new requests.
+
+- **Funding Source Analysis:**  
+  Broke down the top 10 projects by their funding sources:  
+  - Pay-as-you-go  
+  - Debt financing  
+  - Reserve funds  
+  - Partner contributions  
+  📍 *Findings:*  
+  - Infrastructure-heavy projects (e.g. *Sewer Main Renewal – Balaclava Catchment Area*) rely on debt.  
+  - Others (e.g. *Distribution Main Replacement*) are fully internally funded.
+
+- **Partner Contribution Evaluation:**  
+  Selected projects where external partner funding exceeds 10% of the total budget.  
+  📍 *Examples:*  
+  - *Underground Lighting Conduit*  
+  - *Archive Facility Renovation*
+
+### 3– Documentation and Interpretation:  
+- Insights were compiled into structured tables, figures, and summaries.  
+- Strategic interpretations supported planning decisions around funding, scheduling, and community partnership initiatives.  
+- Screenshots of SQL queries and results from Athena were included in the project report.
+
+## Tools and Technologies:
+- **Amazon Athena** – SQL querying  
+- **AWS Glue Data Catalog** – Metadata registry  
+- **Amazon S3** – Query result and data storage  
+- **SQL** – Analytical queries  
+- **AWS Console** – Service management and screenshots
+
+## Deliverables:
+- SQL scripts for all five analytical dimensions  
+- Summary report of capital budgeting insights  
+- Tables of top-funded projects, funding breakdowns, and year-wise projections  
+- Athena console screenshots of query results  
+- Final result dataset stored in Parquet format in Amazon S3
+
+## Timeline:
+- **Week 1** – Catalog setup and environment configuration  
+- **Week 2** – Query development in Athena  
+- **Week 3** – Insight extraction and result interpretation  
+- **Week 4** – Documentation, reporting, and visualization
+
+This project enables the City of Vancouver to make informed decisions about capital planning and funding strategy through robust, cloud-based budget analysis.
+
