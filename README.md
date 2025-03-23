@@ -1,4 +1,4 @@
-# Auotomated Data Ingestion As a Part of Migration of UCW to AWS Cloud
+# Automated Data Ingestion As a Part of Migration of UCW to AWS Cloud
 # Project 1: Automated Data Ingestion for Academic Accommodation for Students with Accessibility Needs at UCW (5051 p)
 
 
@@ -287,7 +287,7 @@ Included:
 - Crawler outputs
 - S3 output reports
 ---
-# Data Analysis for Capital Budget Forecasting – City of Vancouver
+# Diagnostic Analysis for Capital Budget Forecasting – City of Vancouver
 
 ## Project 4: Capital Budget Forecast Analysis for the City of Vancouver Using AWS Athena
 
