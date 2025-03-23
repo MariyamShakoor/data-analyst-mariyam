@@ -1,4 +1,4 @@
-# MBA Graduate-mariyam
+# Migration of UCW to AWS Cloud
 # Project 1:Automated Data Ingestion for Academic Accommodation for Students with Accessibility Needs at UCW
 
 
