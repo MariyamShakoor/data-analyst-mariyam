@@ -202,13 +202,13 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ---
 
-# Data Cataloging
-# Project 3: Automated Academic Accommodation Data Cataloging (Procedure 5051p)
+# Data Enrichment
+# Project 3: Automated Academic Accommodation Data Enrichment (Procedure 5051p)
 
 
 
 ## 🎯 Objective
-This project focuses on cataloging and managing datasets related to academic accommodations for students with accessibility needs at a university, based on **Procedure 5051p**. The aim is to provide a clean, accessible, and queryable metadata layer using AWS Glue Data Catalog, enhancing the usability of accommodation, appeals, and student records data across AWS S3 storage.
+This project focuses on enrichment and managing datasets related to academic accommodations for students with accessibility needs at a university, based on **Procedure 5051p**. The aim is to provide a clean, accessible, and queryable metadata layer using AWS Data Catalog, enhancing the usability of accommodation, appeals, and student records data across AWS S3 storage.
 
 ## 🗃️ Background
 Universities store data on student accommodations, appeals, and services across various logs and systems. Manual management of this data is error-prone, lacks consistency, and limits accessibility for analytics or compliance. AWS Glue and S3 provide a scalable solution to automate metadata extraction, manage schema changes, and support downstream applications through cataloged datasets.
