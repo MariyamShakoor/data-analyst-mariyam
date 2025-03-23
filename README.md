@@ -382,4 +382,75 @@ The following queries were performed using SQL in Athena:
 - **Week 4** – Documentation, reporting, and visualization
 
 This project enables the City of Vancouver to make informed decisions about capital planning and funding strategy through robust, cloud-based budget analysis.
+--
+
+# Data Quality Management Pipeline in AWS  
+# Project 5:**A Visual ETL Approach for Scalable Data Governance**
+
+## Project Overview
+This project demonstrates the implementation of an automated data quality management pipeline using **AWS Glue Studio** and **Amazon S3**. The primary objective is to ensure scalable and reliable data governance by evaluating critical quality dimensions such as **completeness** and **uniqueness** on datasets stored in Amazon S3. The pipeline routes validated data to designated folders, enabling optimized storage and facilitating clean data consumption for analytics.
+
+---
+
+## Objectives
+- Automate data quality evaluation processes within AWS Glue Studio.
+- Implement scalable governance through structured folder routing.
+- Ensure high-quality, analysis-ready datasets in Amazon S3.
+
+---
+
+## Solution Architecture
+
+- **Raw Data Source**: `s3://budgetrequest-raw-my`
+- **Transformed Storage**: `s3://budgetrequest-trf-my/Quality_Check/`
+  - Subfolders: `Passed/` and `Failed/`
+- **ETL Pipeline**: `budgetrequest-QC-My` (AWS Glue Studio Visual Job)
+- **IAM Role**: `LabRole` with required permissions to access S3 and Glue resources.
+
+---
+
+## Data Quality Rules Applied
+
+| Quality Dimension | Field                    | Rule                                |
+|-------------------|--------------------------|-------------------------------------|
+| Completeness      | Service_Category_3       | ≥ 95% non-null entries              |
+| Uniqueness        | Project/Program_Name     | ≥ 99% unique values                 |
+| Data Freshness    | *N/A*                    | Skipped due to absence of timestamps |
+
+---
+
+## Pipeline Workflow
+
+1. **Data Ingestion**  
+   Raw CSV data is imported from `s3://budgetrequest-raw-my` into the AWS Glue Studio visual job.
+
+2. **Data Quality Evaluation**  
+   Quality checks are applied using the **Evaluate Data Quality** transform node. Relevant flags are generated using the “Add new columns to indicate data quality” feature.
+
+3. **Conditional Routing**  
+   A **ConditionalRouter** node categorizes records based on quality evaluation:
+   - **Passed** → Routed to `quality_passed`
+   - **Failed** → Routed to `default_group`
+
+4. **Schema Optimization**  
+   Additional quality indicator columns are removed using the **Change Schema** transform to reduce storage cost and preserve the original schema.
+
+5. **Output Partitioning and Storage**  
+   Using the **Autobalance Processing** node, data is partitioned into a single CSV file per group and stored in:
+   - `s3://budgetrequest-trf-my/Quality_Check/Passed/`
+   - `s3://budgetrequest-trf-my/Quality_Check/Failed/`
+
+---
+
+## Results Summary
+
+- Total Rows Processed: 200  
+- Rows Passed Quality Checks: 195  
+- Rows Failed Quality Checks: 5  
+
+---
+
+## Folder Structure
+
+
 
