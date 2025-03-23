@@ -1,1 +1,1 @@
-# data-analyst-mariyam
+# MBA Graduate-mariyam
