@@ -203,8 +203,3 @@ Academic institutions are expected to maintain precise, transparent records for 
 ---
 
 
-## License  
-This project is for academic and demonstration use only. No real student data is included.  
-Aligned with institutional accessibility and equity policies.
-
-
