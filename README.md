@@ -203,3 +203,86 @@ Academic institutions are expected to maintain precise, transparent records for 
 ---
 
 
+# Project 3: Automated Academic Accommodation Data Cataloging (Procedure 5051p)
+
+
+
+## 🎯 Objective
+This project focuses on cataloging and managing datasets related to academic accommodations for students with accessibility needs at a university, based on **Procedure 5051p**. The aim is to provide a clean, accessible, and queryable metadata layer using AWS Glue Data Catalog, enhancing the usability of accommodation, appeals, and student records data across AWS S3 storage.
+
+## 🗃️ Background
+Universities store data on student accommodations, appeals, and services across various logs and systems. Manual management of this data is error-prone, lacks consistency, and limits accessibility for analytics or compliance. AWS Glue and S3 provide a scalable solution to automate metadata extraction, manage schema changes, and support downstream applications through cataloged datasets.
+
+## Datasets Involved
+- **Student Information List**
+- **Academic Accommodations List**
+- **Appeals Information List**
+- **Accommodation Letter List**
+- **Student Log Files (ASVS & AWA servers)**
+
+## Tools and Technologies
+- **AWS Glue** (Data Catalog, Crawler, and ETL Visual Editor)
+- **Amazon S3** (Raw and curated storage layers)
+- **AWS Glue DataBrew** (Data Profiling and Cleaning)
+- **Parquet Format** (Optimized storage)
+- **IAM** (for access control)
+- **Python (optional)** for custom transformation scripts
+
+## Implementation Steps
+
+### 1. Data Ingestion
+- Upload raw data from various sources (CSV, logs, form submissions) into Amazon S3 under designated buckets: `academics-raw-my` and `academics-cur-my`.
+
+### 2. Data Profiling & Cleaning
+- Used **AWS Glue DataBrew** to:
+  - Profile datasets (check for missing, invalid, duplicate values)
+  - Clean datasets (remove inconsistencies, format columns)
+  - Run recipe jobs for each dataset (e.g., `acad-stud-info-cln-my`, `acad-acomm-lst-cln-my`)
+
+### 3. Data Cataloging
+- Created **AWS Glue Crawlers** for each dataset to:
+  - Automatically infer schema
+  - Create tables in the `academics-data` and `academics-cur-my` databases
+- Table examples:
+  - `stud-list-metrics`
+  - `accomod-letter-list-metrics`
+  - `appeal-info-list-metrics`
+  - `acad_accomm_trfsystem`
+
+### 4. Data Transformation (Optional)
+- Designed **Visual ETL Jobs** using AWS Glue Studio for:
+  - Summarizing metrics (e.g., Follow-up needed in Appeals)
+  - Merging datasets
+  - Creating clean outputs in S3 as Parquet files
+
+### 5. Data Storage and Lifecycle Management
+- Applied **S3 Lifecycle Rules** to archive old raw data (Glacier Instant Retrieval)
+- Maintained versioned folders for job outputs (e.g., `Report_Date=2025-02-09`)
+
+## Outputs
+- Cleaned and cataloged Parquet datasets, queryable via Athena or Redshift Spectrum
+- Metrics dashboards derived from summarized ETL outputs
+- Traceable S3 logs from `ASVS` and `AWA` servers
+
+## Example Use Cases
+- Faculty can quickly access accommodations data for course planning
+- Accessibility officers can generate compliance reports
+- Analysts can visualize accommodation trends and appeal outcomes
+
+## Status
+✔️ Data cataloging and profiling complete  
+✔️ Recipe jobs executed for all datasets  
+✔️ Crawlers and ETL jobs deployed  
+✔️ Visual workflows created and outputs stored in `academics-cur-my`  
+
+## Folder Structure
+academics-raw-my/ ├── accomodation/ │ ├── user-log/ │ └── accommodation-user-log.txt ├── appeals/ │ └── raw.csv
+
+academics-cur-my/ ├── appeal-information-list/ │ └── Report_Date=2025-02-09/ ├── accommodation-letter-list/ │ └── metrics/ │ └── system/ │ └── approvedaccommodations-*.csv
+
+## Screenshots
+Included:
+- Glue ETL visual jobs
+- DataBrew profiles
+- Crawler outputs
+- S3 output reports
