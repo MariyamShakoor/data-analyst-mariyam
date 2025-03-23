@@ -385,7 +385,7 @@ This project enables the City of Vancouver to make informed decisions about capi
 --
 
 # Data Quality Management Pipeline in AWS  
-#Project 5: A Visual ETL Approach for Scalable Data Governance**
+#**Project 5: A Visual ETL Approach for Scalable Data Governance**
 
 ## Project Overview
 This project implements an automated pipeline for ensuring data quality and governance using **AWS Glue Studio** and **Amazon S3**. The pipeline performs completeness and uniqueness checks on datasets stored in S3, then segregates and stores validated and invalidated data into separate locations to maintain quality standards and enable structured data governance.
@@ -453,4 +453,98 @@ This project implements an automated pipeline for ensuring data quality and gove
 ---
 
 ## Folder Structure
+
+--
+# Data Lake Security Implementation for the City of Vancouver  
+**Ensuring Confidentiality, Integrity, and Availability for 2024 Capital Project Budget Data**
+
+## 📘 Overview
+This project implements a comprehensive data security architecture for the **City of Vancouver’s 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget**. The solution uses AWS-native services to protect data at rest and in transit within a multi-zone **data lake** environment, ensuring compliance with the **CIA triad**: Confidentiality, Integrity, and Availability.
+
+---
+
+## 🎯 Objective
+To secure and govern sensitive financial datasets related to the City of Vancouver’s capital planning by leveraging:
+- AWS Key Management Service (KMS)
+- Amazon S3 bucket encryption
+- S3 bucket versioning
+- Cross-region replication
+
+---
+
+## 🛠️ Architecture Components
+
+### 🔐 Key Management – AWS KMS
+- **Key Type**: Symmetric
+- **Key Name**: `budgetrequest-key-my`
+- **Role Permissions**: 
+  - `LabRole` assigned permissions to create, rotate, and use the key
+- **Usage**: Encrypts and decrypts all data within the following S3 buckets:
+  - `budgetrequest-raw-my`
+  - `budgetrequest-cur-my`
+  - `budgetrequest-trf-my`
+
+---
+
+### 🪣 S3 Bucket Encryption (Confidentiality)
+All relevant buckets are configured to use server-side encryption with the KMS-managed key:
+
+| Bucket Name              | Zone         | Encryption Type                |
+|--------------------------|--------------|--------------------------------|
+| budgetrequest-raw-my     | Raw          | SSE-KMS (`budgetrequest-key-my`) |
+| budgetrequest-cur-my     | Curated      | SSE-KMS (`budgetrequest-key-my`) |
+| budgetrequest-trf-my     | Transformed  | SSE-KMS (`budgetrequest-key-my`) |
+
+---
+
+### 📄 S3 Bucket Versioning (Integrity)
+Versioning is enabled to protect against accidental deletion or overwrites, allowing data rollback when needed.
+
+| Bucket Name              | Versioning Status |
+|--------------------------|-------------------|
+| budgetrequest-raw-my     | Enabled           |
+| budgetrequest-cur-my     | Enabled           |
+| budgetrequest-trf-my     | Enabled           |
+
+---
+
+### 🌐 S3 Replication (Availability)
+Data is automatically replicated to backup buckets to ensure high availability and disaster recovery capability.
+
+| Source Bucket            | Destination Bucket       | Encryption | Versioning | Replication Rule |
+|--------------------------|--------------------------|------------|------------|------------------|
+| budgetrequest-raw-my     | budgetrequest-raw-bac-my | KMS-Enabled| Enabled    | budgetrequest-rep-rul-my |
+| budgetrequest-cur-my     | budgetrequest-cur-bac-my | KMS-Enabled| Enabled    | budgetrequest-rep-rul-my |
+| budgetrequest-trf-my     | budgetrequest-trf-bac-my | KMS-Enabled| Enabled    | budgetrequest-rep-rul-my |
+
+- Scope: Applies to all new objects (existing objects not replicated)
+- Secure replication of encrypted files with KMS key support
+
+---
+
+## 🗂️ Folder and Bucket Layout
+
+|-- budgetrequest-raw-my/ |-- budgetrequest-cur-my/ |-- budgetrequest-trf-my/ |-- budgetrequest-raw-bac-my/ |-- budgetrequest-cur-bac-my/ |-- budgetrequest-trf-bac-my/ |-- kms/ (AWS Key: budgetrequest-key-my)
+
+---
+
+## 🛡️ Security Outcomes
+
+- **Confidentiality**: All data encrypted using a customer-managed KMS key
+- **Integrity**: Versioning ensures historical data retention and change tracking
+- **Availability**: Cross-region replication ensures data redundancy and resilience
+
+---
+
+## 📁 Dataset Secured
+- **2024 Multi-Year Capital Project Budget Requests**
+- **Capital Expenditure Budget**  
+These datasets contain sensitive financial planning data critical to city infrastructure and investment initiatives.
+
+---
+
+## 👨‍💼 Developed By
+[Your Name or Team Name]  
+[Institution or Organization Name]  
+March 2025
 
