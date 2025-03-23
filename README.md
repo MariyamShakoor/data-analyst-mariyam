@@ -93,25 +93,25 @@ To automate and standardize the ingestion, profiling, and management of academic
 
 # Project 2: 🧹 Data Wrangling for Academic Accommodations (Procedure 5051p)
 
-## 📌 Project Title  
+## Project Title  
 **Data Wrangling for Academic Accommodation and Appeal Records Using AWS (Procedure 5051p Compliance)**
 
-## 📝 Project Description  
+## Project Description  
 This project focuses on comprehensive data wrangling to clean, transform, and unify academic accommodation and appeal records for students with accessibility needs, in compliance with **Procedure 5051p**. Leveraging AWS services such as S3, Glue DataBrew, Athena, and Glue Catalog, the objective is to create a reliable, analysis-ready dataset that supports institutional decision-making, compliance reporting, and student service optimization.
 
 ---
 
-## 🎯 Objective  
+## Objective  
 The primary goal of this project is to perform data profiling, cleaning, and transformation across multiple CSV and TXT datasets related to student accommodations, appeals, and system logs. The final output is a consolidated, high-quality dataset that reflects accurate records for accessibility services and supports downstream analytics, including equity audits and policy planning.
 
 ---
 
-## 📚 Background  
+## Background  
 Academic institutions are expected to maintain precise, transparent records for students requiring academic accommodations. However, this data often resides in fragmented files or databases, leading to inconsistencies and data quality issues. This project directly supports **Procedure 5051p: Academic Accommodation for Students with Accessibility Needs**, ensuring that accommodation and appeal data is reliable, accessible, and actionable through cloud-based wrangling practices.
 
 ---
 
-## 📂 Dataset Description  
+## Dataset Description  
 
 | Dataset Name                     | Description                                                  |
 |----------------------------------|--------------------------------------------------------------|
@@ -158,7 +158,7 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ---
 
-## 🛠 Tools and Technologies  
+## Tools and Technologies  
 
 | Tool                | Use Case                                |
 |---------------------|------------------------------------------|
@@ -167,11 +167,11 @@ Academic institutions are expected to maintain precise, transparent records for 
 | **Amazon Athena**    | SQL-based querying and validation       |
 | **AWS Glue Catalog** | Schema definitions and data cataloging  |
 | **Amazon EC2**       | Host platform for visual architecture   |
-| **QuickSight (Optional)** | Visual dashboards for reporting |
+
 
 ---
 
-## 📈 Deliverables  
+## Deliverables  
 
 - ✅ A fully cleaned and consolidated academic accommodations dataset (CSV format)  
 - ✅ Glue DataBrew recipes for cleaning, profiling, and transformation  
@@ -181,7 +181,7 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ---
 
-## 📅 Timeline  
+## Timeline  
 
 | Week | Milestone                                      |
 |------|-----------------------------------------------|
@@ -194,7 +194,7 @@ Academic institutions are expected to maintain precise, transparent records for 
 
 ---
 
-## 🧠 Insights & Impact  
+## Insights & Impact  
 
 - Supported data governance aligned with Procedure 5051p  
 - Enabled accurate tracking of accommodation implementation status  
@@ -204,7 +204,7 @@ Academic institutions are expected to maintain precise, transparent records for 
 ---
 
 
-## 🔐 License  
+## License  
 This project is for academic and demonstration use only. No real student data is included.  
 Aligned with institutional accessibility and equity policies.
 
