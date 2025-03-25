@@ -1,99 +1,103 @@
-# 📘 README: Diagnostic Analysis of City of Vancouver Capital Budget Dataset
+# 📘 README: Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
 
 ---
 
-### ✅ **Project Title**
-**Diagnostic Analysis of the 2024 Multi-Year Capital Project Budget Dataset**
+### ✅ **Project Title**  
+**Phase 2: Data Analytics Platform (DAP) Enhancement for 2024 Multi-Year Capital Budget – City of Vancouver**
 
 ---
 
-### ✅ **Project Description**
-This project represents the second phase of the Data Analytics Platform (DAP) designed for the City of Vancouver. After completing foundational data wrangling tasks, this stage focuses on performing diagnostic analysis on the city's capital budget dataset to uncover insights on expenditure trends, funding distributions, and strategic budget allocations.
+### ✅ **Project Description**  
+This phase continues the implementation of the AWS-based Data Analytics Platform (DAP) using the City of Vancouver’s 2024 Multi-Year Capital Project Budget dataset. Following the initial ingestion, cleaning, profiling, and cataloging of data, Phase 2 expands the platform with in-depth **data analysis**, **security**, **governance**, **monitoring**, and **cost optimization**. These components enable stakeholders to extract insights, enforce control, ensure compliance, and optimize operational costs.
 
 ---
 
-### ✅ **Objective**
-To analyze the cleaned and cataloged budget data using SQL queries in Amazon Athena in order to identify key projects, assess funding patterns, and support strategic financial planning for the 2024–2026 period.
+### ✅ **Objective**  
+To enhance the City of Vancouver’s AWS Data Lake platform with powerful diagnostics, governance policies, and real-time monitoring while ensuring secure and cost-effective handling of financial and planning data.
 
 ---
 
-### ✅ **Dataset**
+### ✅ **Dataset**  
 - **Title**: 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget  
 - **Source**: City of Vancouver Open Data Portal  
-- **Content**: Project names, budget requests (2024), forecasted expenditures (2025–2026), funding sources (debt, reserves, partner contributions), and approvals
+- **Scope**: Project-level data with budget requests, forecasts (2024–2026), funding types, and approvals
 
 ---
 
 ### ✅ **Methodology**
 
-#### 1. **Environment Setup**
-- Two AWS Glue Crawlers were configured: `budgetrequest-crawler-my` to scan S3 buckets and populate the AWS Glue Data Catalog.
-- The crawler created two tables: `budgetrequest-trf_system` and `budgetrequest-metrics`, holding the transformed and summarized financial data.
-- Amazon Athena was used for querying the dataset. The data source was `AwsDataCatalog` and the database selected was `budgetrequest-catalog-my`.
-- Query results were stored in the Amazon S3 location `s3://budgetrequest-cur-my`.
+The implementation methodology for Phase 2 of the DAP project involved building on the foundation established in Phase 1 and enhancing the system with robust analytical, governance, and optimization capabilities. Below are the detailed steps executed across five key areas:
 
-#### 2. **Analysis Overview**
-Each analysis step was conducted using SQL queries within Amazon Athena and focused on deriving specific financial insights from the dataset.
+#### 🔍 **1. Data Analysis using Amazon Athena**
+- The `budgetrequest-trf_system` and `budgetrequest-metrics` tables created via AWS Glue Crawlers were used to perform SQL-based analysis in Athena.
+- **Query Editor Configuration:**
+  - Data Source: `AwsDataCatalog`
+  - Database: `budgetrequest-catalog-my`
+  - Query Output: `s3://budgetrequest-cur-my`
+- **Analysis Executed:**
+  - Identified most expensive projects by filtering and sorting budget columns for 2024 and 2025.
+  - Analyzed forecasted budgets for 2024–2026 to identify long-term high-impact projects.
+  - Compared 2024 requested budgets to prior approvals to identify major changes in financial planning.
+  - Broke down funding across sources: pay-as-you-go, debt, reserves, and partner contributions.
+  - Highlighted projects with >10% partner contribution to explore public-private collaborations.
 
-##### a. **Most Expensive Capital Projects (2024 & 2025)**
-- Queried projects by descending order of budget for 2024 and forecast for 2025.
-- Identified the top-funded projects:
-  - **2024**: "2023–2026 Housing Land Acquisition" with $39.82 million.
-  - **2025**: "Pacific National Exhibition (PNE) Amphitheatre" with $74.98 million.
-- Insights show significant resource dedication toward housing in the earlier year and a shift to infrastructure in the following year.
+#### 🔐 **2. Data Security using AWS KMS and S3 Encryption**
+- Created a **symmetric key** using **AWS Key Management Service (KMS)**.
+- Assigned administrative and usage permissions to IAM role `LabRole`.
+- Updated encryption settings for all S3 zones:
+  - Raw: `budgetrequest-raw-my`
+  - Transformed: `budgetrequest-trf-my`
+  - Curated: `budgetrequest-cur-my`
+- Ensured data is encrypted at rest using the custom key during upload and decrypted during access.
+- Enabled **S3 versioning** for data protection against accidental deletions or overwrites.
+- Configured **replication rules** to backup data to cross-region buckets while preserving encryption and versioning.
 
-##### b. **Forecasted Expenditure Trends (2024–2026)**
-- Analyzed capital project budgets forecasted over three years (2024, 2025, 2026).
-- Sorted by 2024 budget and included forecast values for 2025 and 2026.
-- The top three projects with rising financial impact were:
-  - "2023–2026 Housing Land Acquisition"
-  - "Coal Harbour – Housing"
-  - "PNE Amphitheatre"
-- This analysis revealed a forward-looking expansion of investment into large-scale community development projects.
+#### ✅ **3. Data Governance with AWS Glue Studio (ETL & Quality Checks)**
+- Created a visual ETL job `budgetrequest-QC-My` to implement data quality validation on the raw dataset.
+- Applied built-in transformations for:
+  - **Completeness**: Required ≥95% non-null values in `Service Category 3`
+  - **Uniqueness**: Ensured ≥99% uniqueness in `Project/Program Name`
+- Used **Conditional Router** to split rows based on quality checks:
+  - Passed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Passed/`
+  - Failed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Failed/`
+- Cleaned out helper columns and optimized output files using **Autobalance Processing**.
 
-##### c. **Comparative Analysis of Approved vs. Requested Budgets**
-- Calculated the difference between new 2024 budget requests and previously approved amounts.
-- Highlighted:
-  - "2023–2026 New Land for Parks" and "2024 Distribution Main Replacement" as having major increases.
-  - Projects like "Permanent Public Plazas" had no previous approvals, signaling newly emerging priorities.
-- This comparison supported understanding of evolving funding priorities and areas requiring strategic adjustment.
+#### 📈 **4. Monitoring and Controlling with CloudWatch and CloudTrail**
+- **CloudWatch Dashboards** created for:
+  - S3 metrics: `BucketSizeBytes`, `NumberOfObjects`
+  - AWS Glue JobRun metrics: execution time, success/failure count
+  - Billing thresholds with custom alerts and notification subscriptions
+- Set alarm thresholds (e.g., 400K bucket size) and configured alert delivery to `notification_for_team` email list.
+- **CloudTrail** configured to track API and user actions, storing logs securely in:
+  - `s3://aws-cloudtrail-logs-878223708074-b9bac22d/...`
 
-##### d. **Funding Source Analysis**
-- Evaluated the distribution of total project budgets across four funding types:
-  - Pay-as-you-go
-  - Borrowing authority (debt)
-  - Reserve funds
-  - Partner contributions
-- Showed how certain projects are entirely city-funded while others rely on external debt, providing a nuanced view of fiscal strategies.
-
-##### e. **Partner Contribution Evaluation**
-- Identified projects with more than 10% of their funding from external partners.
-- Sample projects:
-  - Archive Facility Renovations
-  - Underground Lighting Conduit Installations
-- Illustrated how public-private collaborations strengthen municipal investment capabilities and reduce risk.
+#### 💸 **5. Cost Optimization (Gap Analysis using AWS Well-Architected Framework)**
+- Conducted a gap analysis against best practices:
+  - **Right-Sizing**: Identified over-provisioned compute resources
+  - **Elasticity**: Lack of autoscaling policies for variable workloads
+  - **Storage Tiers**: Data stored only in S3 Standard
+  - **Reserved Instances**: On-demand usage with no cost savings strategy
+  - **Monitoring**: Lack of AWS-native budget tools
+- **Recommended Improvements:**
+  - Use AWS Cost Explorer and Trusted Advisor for right-sizing and usage pattern review
+  - Enable S3 Intelligent-Tiering and Lifecycle Rules for storage
+  - Reserve Instances or Savings Plans for consistent workloads
+  - Implement AWS Budgets and Cost Anomaly Detection for financial transparency
 
 ### ✅ **Tools and Technologies**
-- **Data Querying**: Amazon Athena (SQL)
-- **Metadata & Tables**: AWS Glue Data Catalog
-- **Data Storage**: Amazon S3
-- **ETL & Crawling**: AWS Glue Crawlers
-- **Documentation**: AWS Console Screenshots, SQL scripts
+- **AWS Glue**, **Glue Studio**, **Athena**, **S3**, **KMS**, **CloudWatch**, **CloudTrail**, **IAM**
+- **SQL**, **ETL Pipelines**, **Versioning**, **Lifecycle Policies**, **Monitoring Dashboards**
 
 ---
 
 ### ✅ **Deliverables**
-- SQL queries used in Athena for budget analysis
-- Athena query logs and screenshots
-- Visuals of the most expensive, forecasted, and partner-supported projects
-- Analytical report summarizing key budgetary insights
+- SQL queries and Athena analysis results
+- Configured encryption, versioning, and replication policies
+- ETL visual pipeline with row-level quality tracking
+- CloudWatch dashboards and billing alerts
+- GAP analysis matrix with optimization recommendations
+- Secure and governed S3 data lake structure (raw, curated, transformed)
 
 ---
 
-### ✅ **Conclusion**
-The diagnostic analysis phase provided actionable financial insights from the cleaned and cataloged dataset. Key patterns in capital expenditure reveal Vancouver’s evolving priorities—shifting from housing in 2024 to infrastructure in 2025. The analysis also illustrates how funding sources are balanced between internal city finances and external contributions, supporting more resilient and collaborative public project management.
-
-This diagnostic work reinforces the role of AWS cloud tools in enabling transparent, data-driven planning for urban infrastructure and public investment strategy.
-
-> 📌 _Tip: Link Athena query screenshots and SQL scripts directly in your GitHub repo for reference._
-
+> 📌 _Note: Replace all placeholder images in your GitHub repository with AWS console screenshots for documentation completeness._
