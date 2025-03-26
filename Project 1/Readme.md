@@ -1,7 +1,7 @@
 
 # Descriptive Analysis
 ## Project Title: Descriptive Analysis of 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver 
-## Project Description
+## Project Description: 
 This project involves performing descriptive analysis on a municipal capital budget request dataset to uncover trends, service category distributions, and funding patterns using AWS Glue DataBrew.
 ---
 
@@ -25,6 +25,7 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 ## Design
 ![Preview](images/design.png)
 
+- This image is generated from draw.io
 ---
 
 
@@ -42,20 +43,23 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
      
 
 3. **Data Visualization**  
-   - Create visual aids:  
+   - This result can be used to create visual aids:  
      - Bar charts for project distribution  
      - Pie charts for category-wise proportions  
      - Heatmaps to show budget correlations
 
 4. **Insights and Findings**  
    - Parks & Public Spaces had the highest requests (113).
-      ![Preview](images/PRofile%20overview.png)
+
+     ![Preview](images/PRofile%20overview.png)
      
    - High data validity with <1% missing values.
-      ![Preview](images/Profile%20report1.png)
+
+     ![Preview](images/Profile%20report1.png)
      
    - Strong correlation (0.99) between multi-year and 2024 budgets.   
-       ![Preview](images/Profile%20report.png)
+
+      ![Preview](images/Profile%20report.png)
    
         
 
