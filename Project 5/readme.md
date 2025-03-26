@@ -1,7 +1,7 @@
 # Data Wrangling
 
 ## Project Title:  
-**Data Wrangling and Transformation Using AWS Glue DataBrew for **
+**Data Wrangling and Transformation Using AWS Glue DataBrew for 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver **
 
 ---
 
@@ -16,17 +16,18 @@ Following data profiling, key quality issues were identified such as inconsisten
 ---
 
 ## Dataset:  
+This dataset contains municipal capital project budget requests, detailing project names, departments, service categories, and multi-year budget allocations to support planning and funding decisions.
 - **Source**: AWS S3 bucket (`budgetrequest-raw-my`)  
 - **File Type**: CSV  
 - **Size**: 592 records, 20 columns  
 - **Key Fields**:  
-  - `ProjectId`: Unique project identifier  
-  - `ProjectProgramName`: Name of the capital project  
-  - `ServiceCategory1`: Main public service area  
-  - `TotalOpenProjectBudgetIn2024`: Budget allocated for 2024  
-  - `MultiYearCapitalProjectBudgetsPreviouslyApproved`: Budget from previous fiscal years  
-  - `DeliveryDepartment`: Executing department  
-  - `CommunityPriority`: Community relevance flag
+  - **ProjectId** – Unique code assigned to each capital project.  
+  - **ProjectProgramName** – Name or title of the project being proposed.  
+  - **ServiceCategory1** – The primary category of public service related to the project (e.g., Parks, Housing).  
+  - **TotalOpenProjectBudgetIn2024** – Budget allocated for the project for the year 2024.  
+  - **MultiYearCapitalProjectBudgetsPreviouslyApproved** – Previously approved budget for multi-year projects.  
+  - **DeliveryDepartment** – Department responsible for executing the project.  
+  - **CommunityPriority** – Indicator showing whether the project aligns with community-identified priorities.
 
 ---
 
