@@ -1,4 +1,4 @@
-criptive analysis, data# Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
+# Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
 
 ---
 
