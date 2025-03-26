@@ -49,14 +49,13 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 
 4. **Insights and Findings**  
    - Parks & Public Spaces had the highest requests (113).
-
       ![Preview](images/PRofile%20overview.png)
+     
    - High data validity with <1% missing values.
-
-      ![Preview](images/Profile%20report.png)
-   - Strong correlation (0.99) between multi-year and 2024 budgets.    
-   
-    ![Preview](images/Value%20distribution.png)
+      ![Preview](images/Profile%20report1.png)
+     
+   - Strong correlation (0.99) between multi-year and 2024 budgets.   
+       ![Preview](images/Profile%20report.png)
    
         
 
