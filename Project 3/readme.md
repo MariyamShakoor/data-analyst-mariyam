@@ -69,6 +69,9 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 
 ### **Design**
 
+![Preview](images/Design.png)
+
+- This image is generated from draw.io
 
 ---
 
@@ -92,12 +95,24 @@ Each dataset is ingested using precise versioned folder keys that track origin, 
 - Used 'Windows App' to connect to the remote virtual server using the pre generated credentials
 - The ingestion process is implemented through PowerShell scripts run on an EC2 instance, utilizing the `Write-S3Object` command to upload CSV files directly to S3 with custom key naming.
 
+![Preview](images/design.png)
 
 
 ---
 ### **Results and Insights**
 - Successfully created a remote virtual server to simulate UCW Academics operations and designed an organized S3 data lake for long-term data storage.
 - Implemented automated data ingestion using Windows PowerShell on AWS EC2, verifying quarterly ingestion rates for instructor, student, and department data.
+![Preview](images/Student.png)
+
+- Successful ingestion of Student-Information-List in S3
+
+  ![Preview](images/accomodation.png)
+
+- Successful ingestion of Academic_Accommodation_Letter_Dataset in S3
+
+  ![Preview](images/appeal.png)
+
+- Successful ingestion of Appeals_Information_Dataset in S3
 
 
 ---
