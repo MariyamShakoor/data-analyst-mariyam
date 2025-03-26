@@ -11,7 +11,7 @@
 ---
 
 ### ✅ **Project Description**  
-This project showcases a cloud-based data wrangling and analytics workflow applied to the *2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget* dataset. The solution ensures structured data transformation using AWS services, enabling financial transparency and strategic planning for the City of Vancouver.
+This project showcases a cloud-based data wrangling and analytics workflow applied to the *2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget* dataset. The solution ensures structured data transformation using AWS services, enabling financial transparency and strategic planning for the City of Vancouver. This project involves the preparation, organization, and analysis of the 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget dataset released by the City of Vancouver. The dataset includes vital information about proposed capital projects, funding sources, previously approved budgets, and forecasted spending from 2024 to 2028. The main objective is to clean, structure, and examine the data to uncover patterns in funding requests, identify priority service areas, and assess the city’s financial planning strategies. By transforming the raw dataset into a clear and analyzable format, this project supports better decision-making and transparency in municipal budgeting and long-term capital investment planning.
 
 ---
 
@@ -25,9 +25,13 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 - **Title**: 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget  
 - **Records**: 592 rows across 20 columns  
 - **Key Fields**:
-  - Project names, service categories
-  - Budget requests and approvals (2024–2028)
-  - Funding types: Pay-as-you-go, borrowing authority, partner contributions
+ 1. **Project/Program Name** – Name or description of the capital project or program.  
+2. **Service Category 1, 2, 3** – Hierarchical classification of the project’s service area.  
+3. **Previously Approved Budget** – Funds approved in prior capital plans.  
+4. **2024 Budget Request** – New funding requested for the project in 2024.  
+5. **Total Open Budget in 2024** – Total available funds for the project in 2024.  
+6. **Spending Forecast till 2023** – Expected project spending by the end of 2023.  
+7. **Available Budget in 2024** – Remaining funds available to spend in 2024.
 
 ---
 
