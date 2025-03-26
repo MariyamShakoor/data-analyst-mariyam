@@ -115,10 +115,12 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
      
    
      ![Preview](images/ver.png)
-      - This figure shows Versioning enabled in academics-raw-my 
+      - This figure shows Versioning enabled in academics-raw-my
+        
      
      ![Preview](images/ver1.png)
       - This figure shows Versioning enabled in academics-trf-my
+        
        
      ![Preview](images/ver2.png)
       - This figure shows Versioning enabled in academics-trf-my 
@@ -129,10 +131,12 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
      
 
      ![Preview](images/rep.png)
-     - This figure shows Replication enabled in academics-raw-my 
+     - This figure shows Replication enabled in academics-raw-my
+       
      
      ![Preview](images/rep.png)
-     - This figure shows Replication enabled in academics-trf-my 
+     - This figure shows Replication enabled in academics-trf-my
+       
      
      ![Preview](images/rep.png)
      - This figure shows Replication enabled in academics-cur-my 
@@ -144,10 +148,12 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
    - Data transitions from `raw` to `transformed` to `curated` layers, ensuring separation of duties and controlled access at each stage.
    
      ![Preview](images/enc.png)
-     - This figure shows Encryption enabled in academics-raw-my 
+     - This figure shows Encryption enabled in academics-raw-my
+       
      
      ![Preview](images/enc1.png)
-     - This figure shows Encryption enabled in academics-trf-my 
+     - This figure shows Encryption enabled in academics-trf-my
+       
      
      ![Preview](images/enc2.png)
      - This figure shows Encryption enabled in academics-cur-my 
