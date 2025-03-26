@@ -1,24 +1,24 @@
 #Project 1
 ![System Diagram](Project%201/images/Screenshot%202025-02-02%20135035.png)
 
-# 📘 README: Data Wrangling & Analysis on Vancouver Capital Budget Dataset
+# Data Wrangling
 
 ---
 
 ### ✅ **Project Title**  
-**Data Analytics Platform (DAP) Design and Implementation for the City of Vancouver Capital Budget Dataset**
-
----
-
-### ✅ **Project Description**  
-This project showcases a cloud-based data wrangling and analytics workflow applied to the *2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget* dataset. The solution ensures structured data transformation using AWS services, enabling financial transparency and strategic planning for the City of Vancouver. This project involves the preparation, organization, and analysis of the 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget dataset released by the City of Vancouver. The dataset includes vital information about proposed capital projects, funding sources, previously approved budgets, and forecasted spending from 2024 to 2028. The main objective is to clean, structure, and examine the data to uncover patterns in funding requests, identify priority service areas, and assess the city’s financial planning strategies. By transforming the raw dataset into a clear and analyzable format, this project supports better decision-making and transparency in municipal budgeting and long-term capital investment planning.
+** Data Wrangling for the City of Vancouver Capital Budget Dataset**
 
 ---
 
 ### ✅ **Objective**  
-To design and implement a robust Data Analytics Platform (DAP) using AWS that transforms raw municipal budget data into structured, high-quality datasets for analysis, forecasting, and visualization.
+To design and implement a robust Data Analytics Platform (DAP) using AWS that transforms raw municipal budget data into structured, high-quality datasets for analysis, forecasting, and visualization. The goal is to uncover trends in funding allocations, evaluate financial priorities across service categories, and support informed decision-making by transforming raw budget data into structured insights that highlight long-term capital planning and financial sustainability.
 
 ---
+
+### ✅ **Project Background**
+
+The City of Vancouver releases an annual dataset detailing its capital project budget requests and multi-year expenditure forecasts. The 2024 dataset includes detailed information on new and previously approved budgets, projected capital spending, and the funding sources used to support various infrastructure and service projects. With 592 records and over 20 financial fields, the dataset captures a comprehensive picture of the city's investment priorities. This analysis ensures the project supports transparency, financial accountability, and informed decision-making for city planners, stakeholders, and the public.
+
 
 ### ✅ **Dataset**  
 - **Source**: City of Vancouver Open Data Portal  
