@@ -1,5 +1,5 @@
-
-# Project 3: Automated Data Ingestion for UCW Academic Accommodation under Procedure 5051p
+# Automated Data Ingestion
+# Automated Data Ingestion for Academic Accommodation for Students with Accessibility Needs(5051p) at University Canada West
 
 ---
 
