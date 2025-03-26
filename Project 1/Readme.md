@@ -57,7 +57,7 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
    - Strong correlation (0.99) between multi-year and 2024 budgets.    
    
     ![Preview](images/Value%20distribution.png)
-   ![Preview](images/Profile%20eport1.png)
+   
         
 
 6. **Recommendations**  
