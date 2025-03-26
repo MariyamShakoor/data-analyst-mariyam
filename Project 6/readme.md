@@ -37,6 +37,12 @@ Partitioning Strategy:
 ## Methodology:  
 - Create ETL pipelines using AWS Glue (Visual Jobs) for each dataset.
 - Transform schemas, filter records, summarize insights, and convert to Parquet.
+
+  ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+ 
+    
 - Use AWS Glue Data Catalog for schema registration.
 - Output partitioned data to Amazon S3.
 - Ingest web logs using AWS Elastic Beanstalk with log export to S3.
@@ -44,18 +50,48 @@ Partitioning Strategy:
 
 ## Tools and Technologies:  
 - **ETL & Summarization:** AWS Glue (Visual, PySpark)  
-- **Storage:** Amazon S3 (`academics-trf-sum`, `academics-cur-sum`)  
+- **Storage:** Amazon S3 (`academics-trf-my`, `academics-cur-my`)  
 - **Data Cataloging:** AWS Glue Crawlers & Data Catalog  
 - **Web Application Logs:** AWS Elastic Beanstalk (Python)  
 - **Monitoring:** S3 object structure, Glue job metrics  
 - **Planned Visuals:** Amazon QuickSight  
 
 ## Deliverables:  
-- Fully functional AWS Glue ETL pipelines for three datasets  
-- Partitioned Parquet outputs in S3  
+- Fully functional AWS Glue ETL pipelines for three datasets
+  ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+
+    ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+
+    ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+
+    
+- Partitioned Parquet outputs in S3
+
+  ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+
+    
 - Glue Data Catalog tables for queryable access  
-- Beanstalk-deployed Python web app for user logging  
-- Log storage in S3 for user behavior analysis  
+- Beanstalk-deployed Python web app for user logging
+
+  ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+
+    
+- Log storage in S3 for user behavior analysis
+
+  ![Preview](images/design.png)
+
+  - This image is generated from draw.io
+    
 - Documented data flow, security settings, and folder structure  
 
 ## Timeline:  
