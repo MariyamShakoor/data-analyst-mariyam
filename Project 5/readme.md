@@ -67,6 +67,7 @@ This dataset contains municipal capital project budget requests, detailing proje
 3. **Output Configuration**
 
    ![Preview](images/job%20run.png)
+
    
    - **CSV Output**:  
      - Overwrites file for each job run  
@@ -79,7 +80,7 @@ This dataset contains municipal capital project budget requests, detailing proje
      - Configured partitioning by `ServiceCategory1`, `ServiceCategory2`, and `ServiceCategory3`  
      - Allows efficient querying for large-scale analytics
       
-       ![Preview](images/system%20folder.png)
+       ![Preview](images/systemfolder.png)
 
 5. **Storage and Validation**  
    - Final outputs stored in the transformed S3 bucket  
