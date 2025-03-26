@@ -71,7 +71,7 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 
 ![Preview](images/Design.png)
 
-- This image is generated from draw.io
+This image is generated from draw.io
 
 ---
 
@@ -101,20 +101,20 @@ Each dataset is ingested using precise versioned folder keys that track origin, 
 
   ![Preview](images/powershell.png)
 
-  Figure: Data Ingestion Command Prompt on PowerShell
+  This image shows Data Ingestion Command Prompt on PowerShell
   
 - Implemented automated data ingestion using Windows PowerShell on AWS EC2, verifying quarterly ingestion rates for instructor, student, and department data.
   ![Preview](images/Student.png)
 
-  Successful ingestion of Student-Information-List in S3
+  This image shows successful ingestion of Student-Information-List in S3
 
   ![Preview](images/accomodation.png)
 
-  Successful ingestion of Academic_Accommodation_Letter_Dataset in S3
+  This image shows successful ingestion of Academic_Accommodation_Letter_Dataset in S3
 
   ![Preview](images/appeal.png)
 
-  Successful ingestion of Appeals_Information_Dataset in S3
+  This image shows successful ingestion of Appeals_Information_Dataset in S3
 
 
 ---
