@@ -6,7 +6,7 @@ Data Wrangling and Transformation Using AWS Glue DataBrew for 2024 Multi-Year Ca
 ---
 
 ## Objective:  
-To transform and standardize a capital budget request dataset by addressing data quality issues, ensuring consistent formatting, and preparing it for downstream analysis and reporting.
+To transform and standardize a 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget dataset by addressing data quality issues, ensuring consistent formatting, and preparing it for downstream analysis and reporting.
 
 ---
 
@@ -63,16 +63,20 @@ This dataset contains municipal capital project budget requests, detailing proje
      - Resolved **inconsistent or redundant category names** for improved classification accuracy  
    - Renamed all column headers using **camelCase** to ensure consistency across the dataset.
 
-3. **Output Configuration**  
+3. **Output Configuration**
+
+   ![Preview](images/job%20run.png)
    - **CSV Output**:  
      - Overwrites file for each job run  
-     - Stores single consolidated output in `/user` folder  
+     - Stores single consolidated output in `/user` folder
+       ![Preview](images/user%20folder.png)
    - **Parquet Output**:  
      - Enables columnar storage format  
      - Configured partitioning by `ServiceCategory1`, `ServiceCategory2`, and `ServiceCategory3`  
      - Allows efficient querying for large-scale analytics
+       ![Preview](images/system%20folder.png)
 
-4. **Storage and Validation**  
+5. **Storage and Validation**  
    - Final outputs stored in the transformed S3 bucket  
    - Verified structure via AWS Glue and S3 object browser
 
