@@ -39,23 +39,28 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
      - Distribution across service categories  
      - Budget totals and correlations  
      - Frequency of community-priority projects
-       ![Preview](images/PRofilereport1.png)
-       ![Preview](images/PRofilereport.png)
-      ![Preview](images/PRofileoverview.png)
+     
 
 3. **Data Visualization**  
    - Create visual aids:  
      - Bar charts for project distribution  
      - Pie charts for category-wise proportions  
      - Heatmaps to show budget correlations
-       ![Preview](images/Value%20distribution.png)
 
 4. **Insights and Findings**  
-   - Parks & Public Spaces had the highest requests (113).  
-   - High data validity with <1% missing values.  
-   - Strong correlation (0.99) between multi-year and 2024 budgets.
+   - Parks & Public Spaces had the highest requests (113).
 
-5. **Recommendations**  
+      ![Preview](images/PRofile%20overview.png)
+   - High data validity with <1% missing values.
+
+      ![Preview](images/Profile%20report.png)
+   - Strong correlation (0.99) between multi-year and 2024 budgets.    
+   
+    ![Preview](images/Value%20distribution.png)
+   ![Preview](images/Profile%20eport1.png)
+        
+
+6. **Recommendations**  
    - Prioritize funding for high-demand categories.  
    - Use budget correlations to enhance financial planning.  
    - Align future proposals with community priorities.
