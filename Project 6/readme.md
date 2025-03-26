@@ -36,13 +36,7 @@ Partitioning Strategy:
 
 ## Methodology:  
 - Create ETL pipelines using AWS Glue (Visual Jobs) for each dataset.
-- Transform schemas, filter records, summarize insights, and convert to Parquet.
-
-  ![Preview](images/design.png)
-
-  - This image is generated from draw.io
- 
-    
+- Transform schemas, filter records, summarize insights, and convert to Parquet  
 - Use AWS Glue Data Catalog for schema registration.
 - Output partitioned data to Amazon S3.
 - Ingest web logs using AWS Elastic Beanstalk with log export to S3.
@@ -58,37 +52,42 @@ Partitioning Strategy:
 
 ## Deliverables:  
 - Fully functional AWS Glue ETL pipelines for three datasets
-  ![Preview](images/design.png)
+  ![Preview](images/student%20etl.png)
 
-  - This image is generated from draw.io
+  - This ETL is for Student_Information_Dataset
 
-    ![Preview](images/design.png)
+    ![Preview](images/acometl.png)
 
-  - This image is generated from draw.io
+  - This ETL is for Academic_Accommodation_Letter_Dataset
 
-    ![Preview](images/design.png)
+    ![Preview](images/apeealetl.png)
 
-  - This image is generated from draw.io
+  - This ETL is for Appeals_Information_Dataset   
+ - Partitioned Parquet outputs in S3
 
-    
-- Partitioned Parquet outputs in S3
+    ![Preview](images/studentsys.png)
 
-  ![Preview](images/design.png)
+    - This output shows Student_Information_Dataset partitioned for Programs
+  
+    ![Preview](images/appealsys.png)
 
-  - This image is generated from draw.io
+    - This output shows Appeals_Information_Dataset partitioned for Followupaction required status
 
+    ![Preview](images/acosys.png)
+
+    - This output shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status
     
 - Glue Data Catalog tables for queryable access  
 - Beanstalk-deployed Python web app for user logging
 
-  ![Preview](images/design.png)
+  ![Preview](images/beanstalk.png)
 
   - This image is generated from draw.io
 
     
 - Log storage in S3 for user behavior analysis
 
-  ![Preview](images/design.png)
+  ![Preview](images/log.png)
 
   - This image is generated from draw.io
     
