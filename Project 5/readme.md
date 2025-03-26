@@ -31,6 +31,9 @@ This dataset contains municipal capital project budget requests, detailing proje
 
 ---
 
+## Design:
+![Preview](Project%201/images/design.png)
+
 ## Methodology:
 
 ### Common Issues Addressed:
@@ -84,9 +87,7 @@ This dataset contains municipal capital project budget requests, detailing proje
 ## Deliverables:  
 - Cleaned dataset in **CSV** and **Parquet** formats  
 - Partitioned Parquet output for scalable analysis  
-- Project configuration in AWS Glue DataBrew  
-- Architecture and flow diagrams  
-- Standardized, camelCase column headers  
+- Project configuration in AWS Glue DataBrew   
 - Outputs accessible in `budgetrequest-trf-my` S3 bucket
 
 ---
