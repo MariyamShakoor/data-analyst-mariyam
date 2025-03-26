@@ -1,7 +1,7 @@
-# Secure Academic Data Lake Implementation
+# Data Lake Security Implementation
 
 ## Project Title:  
-**Secure Academic Data Lake Implementation for Accommodations and Appeals Dataset in Academic Accommodation for Students with Accessibility Needs at UCW**
+**Data Lake Security Implementation for Academic Accommodation for Students with Accessibility Needs(5051p) at UCW**
 
 ---
 
@@ -60,6 +60,13 @@ University Canada West manages sensitive academic information including accessib
 
 ---
 
+## Design:
+
+ ![Preview](images/design.png)
+ 
+ This design is from draw.io
+---
+
 ## Methodology:
 
 ### Data Lake Architecture
@@ -76,19 +83,20 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
 - **Bucket 2: `academics-trf-my`**  
   - Stores datasets after transformation (e.g., cleaned schema).
   - **Security Features**:  
-    - AWS **KMS encryption**  
-    - **Version control**
+    - AWS **KMS encryption** enabled for data-at-rest  
+    - **Versioning** enabled to maintain change history  
+    - **Replication rules** configured for redundancy
 
   - **Bucket 3: academics-cur-my**
   - Stores curated, final datasets ready for querying or analysis.
-  - Features:
-    - KMS encryption
-    - Bucket versioning
-    - Replication rule enabled
+  - **Security Features**:
+    - AWS **KMS encryption** enabled for data-at-rest  
+    - **Versioning** enabled to maintain change history  
+    - **Replication rules** configured for redundancy
 
 ### Data Management Steps:
 1. Ingest raw CSV files into academics-raw-my  
-2. Transform data using AWS Glue DataBrew (e.g., schema validation, camelCase columns)  
+2. Transform data using AWS Glue DataBrew   
 3. Output transformed files to academics-trf-my  
 4. Store final curated versions in academics-cur-my for access by downstream services
    
@@ -99,18 +107,38 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
    - Created a **symmetric key** using **AWS Key Management Service (KMS)**.
    - Assigned administrative and usage permissions to IAM role `LabRole`.
 
+      ![Preview](images/key.png)     
 
 2. **Versioning**  
    - Enabled to maintain previous versions of all files, protecting against accidental deletion or overwrites.
+     
+     ![Preview](images/ver.png)
+     
+     ![Preview](images/ver1.png)
+     
+     ![Preview](images/ver2.png)
+     
 
 3. **Replication**  
    - Configured S3 replication rules to duplicate data across buckets or regions for durability and disaster recovery.
+
+     ![Preview](images/rep.png)
+     
+     ![Preview](images/rep.png)
+     
+     ![Preview](images/rep.png)
 
 4. **Access Management**  
    - IAM roles and policies (e.g., LabRole) assigned to control who can read/write to each bucket.
 
 5. **Data Lifecycle**  
    - Data transitions from `raw` to `transformed` to `curated` layers, ensuring separation of duties and controlled access at each stage.
+   
+     ![Preview](images/enc.png)
+     
+     ![Preview](images/enc1.png)
+     
+     ![Preview](images/enc2.png)
 
 ---
 
