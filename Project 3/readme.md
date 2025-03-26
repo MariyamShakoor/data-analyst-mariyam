@@ -1,26 +1,26 @@
-#Project 3
-# 📘 README: Automated Data Ingestion for UCW Academic Accommodation under Procedure 5051p
+
+# Project 3: Automated Data Ingestion for UCW Academic Accommodation under Procedure 5051p
 
 ---
 
-### ✅ **Project Title**
+### **Project Title**
 **Automated Data Ingestion for Academic Accommodation Requests at UCW using AWS S3**
 
 ---
 
-### ✅ **Project Description**
+### **Project Description**
 This project is part of a university-wide initiative to modernize UCW’s data infrastructure supporting **academic accommodations** for students with accessibility needs. Aligned with **UCW Procedure 5051p**, this initiative introduces a fully automated and auditable system for ingesting academic accommodation records into AWS S3 using PowerShell and structured folder hierarchy.
 
-The system is built to ensure secure, version-controlled delivery of critical datasets like **Student Information**, **Accommodation Letters**, and **Appeals** from the operational EC2 server to a central S3-based data lake. These datasets serve multiple stakeholders including Academic Operations, Accessibility Services, and the Registrar’s Office. This process forms the first step in a broader academic data pipeline supporting compliance, analytics, and service improvement.
+The system is built to ensure secure, version-controlled delivery of critical datasets like **Student Information**, **Academic Accommodation Letters**, and **Appeals Information** from the operational EC2 server to a central S3-based data lake. These datasets serve multiple stakeholders including Academic Operations, Accessibility Services, and the Registrar’s Office. This process forms the first step in a broader academic data pipeline supporting compliance, analytics, and service improvement.
 
 ---
 
-### ✅ **Objective**
+### **Objective**
 The core objective is to establish a secure, consistent, and metadata-tagged ingestion mechanism to automate the transfer of CSV datasets to the AWS S3 data lake. The pipeline supports traceability, temporal classification (by year/quarter/month), and reliable correlation across academic records via shared identifiers (e.g., `StudentID`).
 
 ---
 
-### ✅ **Datasets**
+### **Datasets**
 
 #### 📄 Student-Information-List.csv
 - **Description**: Core student registry file
@@ -29,14 +29,14 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
   - `FullName`: Student's full name
   - `LevelID`: Educational program level
 
-#### 📄 Academic_Accommodation_Letter_Dataset.csv
+#### Academic_Accommodation_Letter_Dataset.csv
 - **Description**: Details of approved academic accommodations
 - **Fields**:
   - `StudentID`: Links to the student registry
   - `LetterID`: Unique accommodation letter identifier
   - `ImplementationDetails`: Notes about the implementation process
 
-#### 📄 Appeals_Information_Dataset.csv
+#### Appeals_Information_Dataset.csv
 - **Description**: Student-initiated appeals related to accommodation
 - **Fields**:
   - `StudentID`: Foreign Key from student registry
@@ -45,7 +45,12 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 
 ---
 
-### ✅ **S3 Folder Structure**
+### **Design**
+
+
+---
+
+### **Data Storgae in S3**
 
 Each dataset is ingested using precise versioned folder keys that track origin, year, quarter, and upload server. This structure supports auditing, retention management, and future pipeline extensibility.
 
@@ -65,7 +70,7 @@ academics-raw-my/
 
 ---
 
-### ✅ **Ingestion Process**
+### **Ingestion Process**
 The ingestion process is implemented through PowerShell scripts run on an EC2 instance, utilizing the `Write-S3Object` command to upload CSV files directly to S3 with custom key naming.
 
 ```powershell
@@ -78,7 +83,7 @@ Write-S3Object -Bucket academics-raw-my -File "C:\path\Appeals_Information_Datas
 
 ---
 
-### ✅ **Data Schema Relationships**
+### **Data Schema Relationships**
 The ingestion system ensures the following relationships:
 - `StudentID` links across all three datasets
 - Referential integrity maintained by enforcing primary/foreign keys
@@ -90,7 +95,7 @@ Entity Relationship View:
 
 ---
 
-### ✅ **Data Profiling with AWS Glue DataBrew**
+### **Data Profiling with AWS Glue DataBrew**
 Each dataset was profiled using **AWS Glue DataBrew** to assess quality:
 - **Total Rows**: 50
 - **Missing Cells**: 0 (100% valid data)
@@ -109,7 +114,7 @@ Each dataset was profiled using **AWS Glue DataBrew** to assess quality:
 
 ---
 
-### ✅ **Architecture Overview**
+### **Architecture Overview**
 ![Architecture Diagram](./images/academic-data-ingestion-diagram.png)
 
 **Highlights**:
@@ -120,7 +125,7 @@ Each dataset was profiled using **AWS Glue DataBrew** to assess quality:
 
 ---
 
-### ✅ **Compliance with UCW Procedure 5051p**
+### **Compliance with UCW Procedure 5051p**
 This system helps meet regulatory and internal policy requirements:
 - Supports transparency of accommodation workflows
 - Ensures appeals and accommodations are traceable
@@ -133,12 +138,7 @@ UCW’s Accessibility Office, Registrar, and Academic Services benefit from:
 
 ---
 
-### ✅ **Conclusion**
+### **Conclusion**
 This automated data ingestion system for UCW’s academic accommodation datasets is a scalable, cloud-native solution. By leveraging EC2 for operational connectivity and S3 for lifecycle-enabled storage, combined with Glue DataBrew for validation, it creates a foundation for secure academic governance, accessibility monitoring, and data analytics.
 
-Future improvements will include:
-- AWS Glue Crawlers for catalog automation
-- Role-based access using Lake Formation
-- Real-time validation and alerting pipelines via CloudWatch and Lambda
 
-> 📌 _All raw datasets are preserved with full metadata lineage in `academics-raw-my`. Cleaned and transformed datasets are managed separately for analytics._
