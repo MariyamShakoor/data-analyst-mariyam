@@ -1,113 +1,144 @@
-#Project 4 (DATA BREW)
-# 📘 README: Data Wrangling for Academic Accommodation Dataset (UCW - Procedure 5051p)
+# Secure Academic Data Lake Implementation
+
+## Project Title:  
+**Secure Academic Data Lake Implementation for Accommodations and Appeals Dataset in Academic Accommodation for Students with Accessibility Needs at UCW**
 
 ---
 
-### ✅ **Project Title**  
-**Data Wrangling and Transformation of Academic Accommodation Data under UCW Procedure 5051p**
+## Objective:  
+To protect the data lake from CIA threats and implement a secure academic data lake that stores, organizes, and governs sensitive student-related datasets—such as accommodation letters in the UCW's policy of Academic Accommodation for Students with Accessibility Needs using AWS S3 with built-in encryption, versioning, and replication to ensure privacy, integrity, and availability.
 
 ---
 
-### ✅ **Project Description**  
-This project is a key component of the broader cloud-based academic data infrastructure established by University Canada West (UCW) to ensure compliance with **Procedure 5051p: Academic Accommodations for Students with Accessibility Needs**. The wrangling process supports reliable academic data analytics by transforming and validating raw CSV files into structured, high-quality datasets for use in reporting, compliance audits, student accessibility tracking, and internal decision-making.
-
-Raw data is collected through PowerShell-enabled ingestion pipelines and stored in an Amazon S3 bucket (`academics-raw-my`) in a structured path format. These raw datasets are then profiled, cleaned, and standardized using AWS Glue DataBrew recipe jobs. Once validated, the cleaned versions are stored in `academics-trf-my` under appropriate Cleaned and Errors subfolders. This pipeline enables UCW to ensure data quality and readiness for governance, visualization, and research workflows.
+## Background:  
+University Canada West manages sensitive academic information including accessibility accommodations and appeal records. To support compliance and data lifecycle management, a multi-layered data lake architecture was implemented using AWS S3 buckets, with security features such as **KMS encryption**, **version control**, and **cross-bucket replication** for disaster recovery and traceability.
 
 ---
 
-### ✅ **Objective**  
-The objective of this phase is to ensure that all datasets ingested from the academic operations environment—namely student information, accommodation letters, and appeal records—are transformed into clean, consistent, and validated formats. These cleaned datasets support downstream use in analytical platforms (Athena, Redshift) and ensure that UCW maintains data integrity and traceability across all records related to academic accommodations.
+#### 📄 Student-Information-List.csv
+- **Description**: Core student registry file
+- **Fields**: 
+  - **Student ID** – Unique identifier for each student.  
+  - **Full Name** – Full legal name of the student.  
+  - **Email** – Email address of the student.  
+  - **Phone Number** – Contact number for the student.  
+  - **Date of Birth** – Date of birth in YYYY-MM-DD format.  
+  - **Enrollment Date** – The date the student enrolled in their program.  
+  - **Program** – The academic program or major the student is enrolled in.  
+  - **Disability Status** – Indicates whether the student has a registered disability.  
+  - **Accommodation Plan** – Summary or ID of the approved academic accommodation plan.  
+  - **Advisor Name** – Name of the academic advisor assigned to the student.
+
+#### Academic_Accommodation_Letter_Dataset.csv
+- **Description**: Details of approved academic accommodations
+- **Fields**:
+  - **Letter ID** – Unique identifier for each accommodation letter.  
+  - **Student ID** – Reference ID linking to the student receiving accommodations.  
+  - **Issue Date** – Date when the accommodation letter was issued.  
+  - **Expiry Date** – Date when the accommodations expire or require reevaluation.  
+  - **Approved Accommodations** – List of accommodations approved for the student (e.g., extra time, note-taking assistance).  
+  - **Faculty/Department** – Academic unit responsible for implementing the accommodations.  
+  - **Implementation Status** – Status indicating whether the accommodations have been successfully implemented.  
+  - **Concerns Raised by Faculty** – Notes any concerns or objections raised by faculty regarding the accommodations.  
+  - **Registrar Copy Shared** – Indicates if a copy of the letter was shared with the Registrar's Office.  
+  - **Documentation Compliance** – Status showing whether the required documentation (e.g., medical forms) was submitted and verified.  
+
+#### Appeals_Information_Dataset.csv
+- **Description**: Student-initiated appeals related to accommodation
+- **Fields**:
+  - **Appeal ID** – Unique identifier for each appeal record.  
+  - **Student ID** – Unique identifier referencing the student involved in the appeal.  
+  - **Appeal Submission Date** – Date the appeal was submitted.  
+  - **Appeal Type** – Type or category of the appeal (e.g., academic, conduct-related).  
+  - **Description of Appeal** – Summary of the appeal's context or issue.  
+  - **Informal Resolution Attempted** – Indicates whether informal resolution steps were tried prior to formal appeal.  
+  - **Appeal Resolution Status** – Current status of the appeal (e.g., pending, resolved).  
+  - **Appeal Decision Date** – Date the final decision on the appeal was made.  
+  - **Decision-Making Authority** – Role or department responsible for deciding the appeal.  
+  - **Follow-up Action Required** – Notes if any further action is required post-resolution.
+
 
 ---
 
-### ✅ **Dataset**
-The following datasets were ingested into Amazon S3 and wrangled:
+## Methodology:
 
-- **Student-Information-List.csv**  
-  Contains unique identifiers (`StudentID`), student names, and education level.
+### Data Lake Architecture
 
-- **Academic_Accommodation_Letter_Dataset.csv**  
-  Contains `StudentID`, `LetterID`, and details about the implementation or type of academic accommodations offered to students.
+Three S3 buckets were provisioned to represent raw, transformed, and curated layers of the academic data lake:
 
-- **Appeals_Information_Dataset.csv**  
-  Contains `StudentID`, `AppealID`, and `AppealType`, used to track formal requests for reconsideration of accommodation decisions.
+- **Bucket 1: `academics-raw-my`**  
+  - Stores unprocessed, original data files.
+  - **Security Features**:  
+    - AWS **KMS encryption** enabled for data-at-rest  
+    - **Versioning** enabled to maintain change history  
+    - **Replication rules** configured for redundancy  
 
-These datasets are versioned using metadata folders: `year=2025/quarter=01/month=01/server=AGVS-My`. All three share `StudentID` as a common key for cross-referencing.
+- **Bucket 2: `academics-trf-my`**  
+  - Stores datasets after transformation (e.g., cleaned schema).
+  - **Security Features**:  
+    - AWS **KMS encryption**  
+    - **Version control**
 
----
+  - **Bucket 3: academics-cur-my**
+  - Stores curated, final datasets ready for querying or analysis.
+  - Features:
+    - KMS encryption
+    - Bucket versioning
+    - Replication rule enabled
 
-### ✅ **Methodology**
+### Data Management Steps:
+1. Ingest raw CSV files into academics-raw-my  
+2. Transform data using AWS Glue DataBrew (e.g., schema validation, camelCase columns)  
+3. Output transformed files to academics-trf-my  
+4. Store final curated versions in academics-cur-my for access by downstream services
+   
+### Data Lake Security Implementation
 
-#### 🔍 1. Data Profiling
-Data profiling jobs were created using **AWS Glue DataBrew** to analyze and audit the structure and quality of each dataset before cleaning:
+1. **Encryption**  
+   - All three buckets use AWS **Key Management Service (KMS)** to encrypt files at rest.
+   - Created a **symmetric key** using **AWS Key Management Service (KMS)**.
+   - Assigned administrative and usage permissions to IAM role `LabRole`.
 
-- No missing values were detected in any of the datasets
-- All fields were correctly typed (primarily STRING format)
-- Uniqueness of primary keys (`StudentID`, `LetterID`, `AppealID`) was verified
-- Distribution of categorical and string values was within expected ranges
 
-**Profile Job IDs:**
-- `acad-stud-info-ds-prf-my`
-- `acad-acomm-lst-ds-prf-my`
-- `acad-app-info-list-ds-prf-my`
+2. **Versioning**  
+   - Enabled to maintain previous versions of all files, protecting against accidental deletion or overwrites.
 
-#### 🧽 2. Data Cleaning and Recipe Execution
-Three recipe jobs were created and run successfully. These recipes executed transformations including:
-- Renaming of fields (e.g., StudentID → student_id)
-- Trimming whitespaces from string values
-- Lowercasing of all string columns for consistency
-- Removal of any accidental metadata headers or footers
-- Null value handling (none found in this case)
-- Validation of `StudentID` consistency across all three datasets
+3. **Replication**  
+   - Configured S3 replication rules to duplicate data across buckets or regions for durability and disaster recovery.
 
-**Recipe Job IDs:**
-- `acad-stud-info-cln-my`
-- `acad-acomm-lst-cln-my`
-- `acad-app-info-list-cln-my`
+4. **Access Management**  
+   - IAM roles and policies (e.g., LabRole) assigned to control who can read/write to each bucket.
 
-Each dataset’s cleaned output was saved to a **Cleaned** folder in S3, while records failing validation or requiring audit were directed to the **Errors** folder (currently no errors reported).
-
-#### 📁 3. Output Folder Structure in Amazon S3
-Organized under the `academics-trf-my` bucket:
-
-```
-s3://academics-trf-my/
-├── student-information-list/
-│   ├── Cleaned/    # Profiled and cleaned dataset
-│   └── Errors/     # Error-handled or rejected entries (currently empty)
-├── academic-accomodation-letter-list/
-│   ├── Cleaned/
-│   └── Errors/
-├── appeal-information-list/
-│   ├── Cleaned/
-│   └── Errors/
-```
-
-#### 🧾 4. Schema Validation and Consistency Checks
-- All three datasets were validated to share the `StudentID` field, enabling joins
-- Additional checks for duplicate rows and schema mismatches were performed and passed
-- Custom formats were enforced (e.g., lower_case_snake_format for column names)
-- A comprehensive diagram was created to map entity relationships
+5. **Data Lifecycle**  
+   - Data transitions from `raw` to `transformed` to `curated` layers, ensuring separation of duties and controlled access at each stage.
 
 ---
 
-### ✅ **Tools and Technologies**
-- **AWS Glue DataBrew**: For data profiling, recipe creation, and job orchestration
-- **Amazon S3**: Raw and cleaned data storage (academics-raw-my / academics-trf-my)
-- **PowerShell & AWS CLI**: For dataset ingestion and folder structuring
-- **IAM Roles (LabRole)**: To manage job permissions and access policies
-- **EC2 Server Environment**: Operational virtual machines for ingestion and logging
+## Tools and Technologies:
+
+- **AWS S3** – Central data lake storage with layered architecture  
+- **AWS KMS** – For encryption and secure key management  
+- **S3 Versioning** – To track file changes and support data recovery  
+- **S3 Replication** – For cross-bucket or cross-region redundancy  
+- **IAM (LabRole)** – For granular access control  
+- **CSV Format** – Standard format for compatibility and readability  
+- **AWS Glue DataBrew** – For data profiling and transformation tasks  
 
 ---
 
-### ✅ **Deliverables**
-- 📁 Three profiled and cleaned datasets in the S3 `academics-trf-my` bucket
-- 📄 Profiling reports and logs from Glue DataBrew for each dataset
-- 📂 Structured folder hierarchy for Cleaned and Error records
-- 🧾 Validated schema map and data dictionary
-- 📊 Ready-to-query datasets compatible with Athena and Redshift
+## Deliverables:
+
+- A three-tiered academic data lake (`raw`, `transformed`, and `curated`)  
+- KMS-encrypted, version-controlled, and replicated datasets  
+- Verified access permissions via IAM role policies  
+- System documentation detailing data flow and security implementation  
+- Compliance-ready academic data architecture aligned with governance best practices
 
 ---
 
-> 📌 _Note: All raw datasets remain preserved in the S3 bucket `academics-raw-my`, in compliance with UCW data retention policy._
+## Timeline:
 
+- **Week 1** – Dataset collection and raw bucket setup with encryption  
+- **Week 2** – Versioning and replication configurations  
+- **Week 3** – Data transformation and role-based access control  
+- **Week 4** – Curation, documentation, and validation of security policies
