@@ -23,7 +23,8 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 ---
 
 ## Design
-![Preview](Project%201/images/design.png)
+![Preview](images/design.png)
+![Preview](images/design.png)
 
 ---
 
