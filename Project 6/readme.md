@@ -1,11 +1,11 @@
-# Secure AWS Data Lake Architecture with Glue-based ETL and Cataloging
+# AWS Data Lake Architecture with Glue-based ETL and Cataloging
 ## Project Title:  
-**Secure AWS Data Lake Architecture for Academic Records using Glue-based ETL and Elastic Beanstalk Logging in Academic Accommodation for Students with Accessibility Needs (5051p) at UCW**
+**AWS Data Lake Architecture for Academic Records using Glue-based ETL and Elastic Beanstalk Logging in Academic Accommodation for Students with Accessibility Needs (5051p) at UCW**
 
 ---
 
 ## Objective:  
-To develop a secure, automated data lake architecture for managing academic datasets, with partitioned ETL pipelines and log ingestion using AWS Glue, S3, and Elastic Beanstalk, supporting scalable storage, transformation, and future visualization.
+To develop an automated data lake architecture for managing academic datasets, with partitioned ETL pipelines and log ingestion using AWS Glue, S3, and Elastic Beanstalk, supporting scalable storage, transformation, and future visualization.
 
 ---
 
@@ -21,8 +21,8 @@ Managing academic data such as student information, accommodation letters, and a
 
 Partitioning Strategy:  
 - Student dataset: Partitioned by list of `Program`  
-- Accommodation letters: Partitioned by `Approved Accommodations`  
-- Appeals: Partitioned by `Follow-up Action Required`
+- Accommodation letters: Partitioned by status for `Approved Accommodations`  
+- Appeals: Partitioned by status for `Follow-up Action Required`
 
 ---
 
@@ -56,11 +56,11 @@ Partitioning Strategy:
 
   - This ETL is for Student_Information_Dataset
 
-    ![Preview](images/acometl.png)
+    ![Preview](images/accometl.png)
 
   - This ETL is for Academic_Accommodation_Letter_Dataset
 
-    ![Preview](images/apeealetl.png)
+    ![Preview](images/appealetl.png)
 
   - This ETL is for Appeals_Information_Dataset   
  - Partitioned Parquet outputs in S3
@@ -80,7 +80,7 @@ Partitioning Strategy:
 - Glue Data Catalog tables for queryable access  
 - Beanstalk-deployed Python web app for user logging
 
-  ![Preview](images/beanstalk.png)
+  ![Preview](images/beanstalk.jpeg)
 
   - This image is generated from draw.io
 
