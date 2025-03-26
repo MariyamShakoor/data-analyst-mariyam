@@ -32,7 +32,10 @@ This dataset contains municipal capital project budget requests, detailing proje
 ---
 
 ## Design:
-![Preview](Project%201/images/design.png)
+![Preview](images/design.png)
+
+- This image is generated from draw.io
+---
 
 ## Methodology:
 
