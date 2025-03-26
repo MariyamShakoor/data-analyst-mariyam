@@ -53,20 +53,11 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 ### **Data Storgae in S3**
 
 Each dataset is ingested using precise versioned folder keys that track origin, year, quarter, and upload server. This structure supports auditing, retention management, and future pipeline extensibility.
-
-```plaintext
-academics-raw-my/
-├── accomodation/
-│   ├── student-information-list/
-│   │   └── year=2025/quarter=01/month=1/server=AGVS-My/
-│   │       └── Student-Information-List.csv
-│   ├── academic-accomodation-letter-list/
-│   │   └── year=2025/quarter=1/server=AGVS-My/
-│   │       └── Academic_Accommodation_Letter_Dataset.csv
-│   └── appeal-information-list/
-│       └── year=2025/quarter=01/month=1/server=AGVS-My/
-│           └── Appeals_Information_Dataset.csv
-```
+- Created Folders inside S3 raw bucket.
+- Ingestion of each dataset is defined based on their access patterns.
+  /accomodation/student-information-list/year=2025/quarter=1/server-AGVS-My
+  /accomodation/academic-accomodation-letter-list/year=2025/quarter=1/month=1/server-AGVS-My
+  /accomodation/appeal-information-list/year=2025/quarter=1/month=1/server-AGVS-My
 
 ---
 
