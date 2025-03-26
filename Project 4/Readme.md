@@ -107,38 +107,50 @@ Three S3 buckets were provisioned to represent raw, transformed, and curated lay
    - Created a **symmetric key** using **AWS Key Management Service (KMS)**.
    - Assigned administrative and usage permissions to IAM role `LabRole`.
 
-      ![Preview](images/key.png)     
+      ![Preview](images/key.png)
+       - This figure shows key creation 
 
 2. **Versioning**  
    - Enabled to maintain previous versions of all files, protecting against accidental deletion or overwrites.
      
+   
      ![Preview](images/ver.png)
+      - This figure shows Versioning enabled in academics-raw-my 
      
      ![Preview](images/ver1.png)
-     
+      - This figure shows Versioning enabled in academics-trf-my
+       
      ![Preview](images/ver2.png)
+      - This figure shows Versioning enabled in academics-trf-my 
      
 
-3. **Replication**  
+4. **Replication**  
    - Configured S3 replication rules to duplicate data across buckets or regions for durability and disaster recovery.
+     
 
      ![Preview](images/rep.png)
+     - This figure shows Replication enabled in academics-raw-my 
      
      ![Preview](images/rep.png)
+     - This figure shows Replication enabled in academics-trf-my 
      
      ![Preview](images/rep.png)
+     - This figure shows Replication enabled in academics-cur-my 
 
-4. **Access Management**  
+5. **Access Management**  
    - IAM roles and policies (e.g., LabRole) assigned to control who can read/write to each bucket.
 
-5. **Data Lifecycle**  
+6. **Data Lifecycle**  
    - Data transitions from `raw` to `transformed` to `curated` layers, ensuring separation of duties and controlled access at each stage.
    
      ![Preview](images/enc.png)
+     - This figure shows Encryption enabled in academics-raw-my 
      
      ![Preview](images/enc1.png)
+     - This figure shows Encryption enabled in academics-trf-my 
      
      ![Preview](images/enc2.png)
+     - This figure shows Encryption enabled in academics-cur-my 
 
 ---
 
