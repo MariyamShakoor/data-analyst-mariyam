@@ -1,4 +1,4 @@
-# Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
+criptive analysis, data# Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
 
 ---
 
@@ -8,7 +8,7 @@
 ---
 
 ### ✅ **Project Description**  
-This phase continues the implementation of the AWS-based Data Analytics Platform (DAP) using the City of Vancouver’s 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget dataset. Following the initial ingestion, cleaning, profiling, and cataloging of data, Phase 2 expands the platform with in-depth **data analysis**, **security**, **governance**, **monitoring**, and **cost optimization**. These components enable stakeholders to extract insights, enforce control, ensure compliance, and optimize operational costs.
+This phase continues the implementation of the AWS-based Data Analytics Platform (DAP) using the City of Vancouver’s 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget dataset. Following the initial ingestion, descriptive analysis, data wrangling and cataloging of data. 
 
 ---
 
@@ -44,10 +44,25 @@ The implementation methodology for Phase 2 of the DAP project involved building 
   - Query Output: `s3://budgetrequest-cur-my`
 - **Analysis Executed:**
   - Identified most expensive projects by filtering and sorting budget columns for 2024 and 2025.
+    
+  ![Preview](images/Picture1.png) ![Preview](images/Picture2.png)
+    
   - Analyzed forecasted budgets for 2024–2026 to identify long-term high-impact projects.
+
+    ![Preview](images/Picture3.png)
+    
   - Compared 2024 requested budgets to prior approvals to identify major changes in financial planning.
+ 
+    ![Preview](images/Picture4.png)
+    
   - Broke down funding across sources: pay-as-you-go, debt, reserves, and partner contributions.
-  - Highlighted projects with >10% partner contribution to explore public-private collaborations.
+
+    ![Preview](images/Picture5.png)
+
+    - Highlighted projects with >10% partner contribution to explore public-private collaborations.
+
+      ![Preview](images/Picture6.png)
+      
 
 #### 🔐 **2. Data Security using AWS KMS and S3 Encryption**
 - Created a **symmetric key** using **AWS Key Management Service (KMS)**.
