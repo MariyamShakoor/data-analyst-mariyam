@@ -1,14 +1,14 @@
-# 📘 README: Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
+# Phase 2 – Data Analytics Platform (DAP) for City of Vancouver Budget Dataset
 
 ---
 
 ### ✅ **Project Title**  
-**Phase 2: Data Analytics Platform (DAP) Enhancement for 2024 Multi-Year Capital Budget – City of Vancouver**
+**Phase 2: Data Analytics Platform (DAP) Enhancement for 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver**
 
 ---
 
 ### ✅ **Project Description**  
-This phase continues the implementation of the AWS-based Data Analytics Platform (DAP) using the City of Vancouver’s 2024 Multi-Year Capital Project Budget dataset. Following the initial ingestion, cleaning, profiling, and cataloging of data, Phase 2 expands the platform with in-depth **data analysis**, **security**, **governance**, **monitoring**, and **cost optimization**. These components enable stakeholders to extract insights, enforce control, ensure compliance, and optimize operational costs.
+This phase continues the implementation of the AWS-based Data Analytics Platform (DAP) using the City of Vancouver’s 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget dataset. Following the initial ingestion, cleaning, profiling, and cataloging of data, Phase 2 expands the platform with in-depth **data analysis**, **security**, **governance**, **monitoring**, and **cost optimization**. These components enable stakeholders to extract insights, enforce control, ensure compliance, and optimize operational costs.
 
 ---
 
@@ -21,6 +21,14 @@ To enhance the City of Vancouver’s AWS Data Lake platform with powerful diagno
 - **Title**: 2024 Multi-Year Capital Project Budget Requests and Capital Expenditure Budget  
 - **Source**: City of Vancouver Open Data Portal  
 - **Scope**: Project-level data with budget requests, forecasts (2024–2026), funding types, and approvals
+- **Key Fields**:  
+  - **ProjectId** – Unique code assigned to each capital project.  
+  - **ProjectProgramName** – Name or title of the project being proposed.  
+  - **ServiceCategory1** – The primary category of public service related to the project (e.g., Parks, Housing).  
+  - **TotalOpenProjectBudgetIn2024** – Budget allocated for the project for the year 2024.  
+  - **MultiYearCapitalProjectBudgetsPreviouslyApproved** – Previously approved budget for multi-year projects.  
+  - **DeliveryDepartment** – Department responsible for executing the project.  
+  - **CommunityPriority** – Indicator showing whether the project aligns with community-identified priorities.
 
 ---
 
