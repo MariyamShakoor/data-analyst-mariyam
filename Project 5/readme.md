@@ -1,7 +1,7 @@
 # Data Wrangling
 
 ## Project Title:  
-**Data Wrangling and Transformation Using AWS Glue DataBrew for 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver **
+Data Wrangling and Transformation Using AWS Glue DataBrew for 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver 
 
 ---
 
@@ -48,8 +48,14 @@ This dataset contains municipal capital project budget requests, detailing proje
 
 2. **Cleaning and Formatting with AWS Glue DataBrew**  
    - Initiated a cleaning project: `budgetrequest-cln-my`  
-   - Removed special characters from `ProjectProgramName`.  
-   - Converted all column names to **camelCase** for standardization.
+   - Addressed the following data quality issues:
+     - Handled **missing values** by reviewing column-level completeness  
+     - Ensured removal of **duplicate records**  
+     - Standardized **inconsistent formats**, such as date or numerical representations  
+     - Removed **unnecessary whitespace** and **special characters** from fields like `ProjectProgramName`  
+     - Dropped **irrelevant columns** that do not contribute to analysis  
+     - Resolved **inconsistent or redundant category names** for improved classification accuracy  
+   - Renamed all column headers using **camelCase** to ensure consistency across the dataset.
 
 3. **Output Configuration**  
    - **CSV Output**:  
