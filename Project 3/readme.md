@@ -25,23 +25,45 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 #### 📄 Student-Information-List.csv
 - **Description**: Core student registry file
 - **Fields**: 
-  - `StudentID`: Unique identifier (Primary Key)
-  - `FullName`: Student's full name
-  - `LevelID`: Educational program level
+  - **Student ID** – Unique identifier for each student.  
+  - **Full Name** – Full legal name of the student.  
+  - **Email** – Email address of the student.  
+  - **Phone Number** – Contact number for the student.  
+  - **Date of Birth** – Date of birth in YYYY-MM-DD format.  
+  - **Enrollment Date** – The date the student enrolled in their program.  
+  - **Program** – The academic program or major the student is enrolled in.  
+  - **Disability Status** – Indicates whether the student has a registered disability.  
+  - **Accommodation Plan** – Summary or ID of the approved academic accommodation plan.  
+  - **Advisor Name** – Name of the academic advisor assigned to the student.
 
 #### Academic_Accommodation_Letter_Dataset.csv
 - **Description**: Details of approved academic accommodations
 - **Fields**:
-  - `StudentID`: Links to the student registry
-  - `LetterID`: Unique accommodation letter identifier
-  - `ImplementationDetails`: Notes about the implementation process
+  - **Letter ID** – Unique identifier for each accommodation letter.  
+  - **Student ID** – Reference ID linking to the student receiving accommodations.  
+  - **Issue Date** – Date when the accommodation letter was issued.  
+  - **Expiry Date** – Date when the accommodations expire or require reevaluation.  
+  - **Approved Accommodations** – List of accommodations approved for the student (e.g., extra time, note-taking assistance).  
+  - **Faculty/Department** – Academic unit responsible for implementing the accommodations.  
+  - **Implementation Status** – Status indicating whether the accommodations have been successfully implemented.  
+  - **Concerns Raised by Faculty** – Notes any concerns or objections raised by faculty regarding the accommodations.  
+  - **Registrar Copy Shared** – Indicates if a copy of the letter was shared with the Registrar's Office.  
+  - **Documentation Compliance** – Status showing whether the required documentation (e.g., medical forms) was submitted and verified.  
 
 #### Appeals_Information_Dataset.csv
 - **Description**: Student-initiated appeals related to accommodation
 - **Fields**:
-  - `StudentID`: Foreign Key from student registry
-  - `AppealID`: Unique appeal entry
-  - `AppealType`: Nature of appeal (e.g., review request, modification)
+  - **Appeal ID** – Unique identifier for each appeal record.  
+  - **Student ID** – Unique identifier referencing the student involved in the appeal.  
+  - **Appeal Submission Date** – Date the appeal was submitted.  
+  - **Appeal Type** – Type or category of the appeal (e.g., academic, conduct-related).  
+  - **Description of Appeal** – Summary of the appeal's context or issue.  
+  - **Informal Resolution Attempted** – Indicates whether informal resolution steps were tried prior to formal appeal.  
+  - **Appeal Resolution Status** – Current status of the appeal (e.g., pending, resolved).  
+  - **Appeal Decision Date** – Date the final decision on the appeal was made.  
+  - **Decision-Making Authority** – Role or department responsible for deciding the appeal.  
+  - **Follow-up Action Required** – Notes if any further action is required post-resolution.
+
 
 ---
 
@@ -50,7 +72,7 @@ The core objective is to establish a secure, consistent, and metadata-tagged ing
 
 ---
 
-### **Data Storgae in S3**
+### **1. Data Storgae in S3**
 
 Each dataset is ingested using precise versioned folder keys that track origin, year, quarter, and upload server. This structure supports auditing, retention management, and future pipeline extensibility.
 - Created Folders inside S3 raw bucket.
@@ -61,58 +83,22 @@ Each dataset is ingested using precise versioned folder keys that track origin, 
 
 ---
 
-### **Ingestion Process**
-The ingestion process is implemented through PowerShell scripts run on an EC2 instance, utilizing the `Write-S3Object` command to upload CSV files directly to S3 with custom key naming.
+### **2. Ingestion Process**
+- Created EC2 Instance named AGVS-My
+- Chose Windows AMI and t3.micro instance type (2 CPU, 1 GiB Memory)
+- Used Vockey Key Pair for encryption
+- Configured RDP access for remote connection
+- Generated username, password and public DNS to connect to the sample virtual server created for UCW Academics Opeartion team
+- Used 'Windows App' to connect to the remote virtual server using the pre generated credentials
+- The ingestion process is implemented through PowerShell scripts run on an EC2 instance, utilizing the `Write-S3Object` command to upload CSV files directly to S3 with custom key naming.
 
-```powershell
-Write-S3Object -Bucket academics-raw-my -File "C:\path\Student-Information-List.csv" -Key "accomodation/student-information-list/year=2025/quarter=01/month=1/server=AGVS-My/Student-Information-List.csv"
 
-Write-S3Object -Bucket academics-raw-my -File "C:\path\Academic_Accommodation_Letter_Dataset.csv" -Key "accomodation/academic-accomodation-letter-list/year=2025/quarter=1/server=AGVS-My/Academic_Accommodation_Letter_Dataset.csv"
-
-Write-S3Object -Bucket academics-raw-my -File "C:\path\Appeals_Information_Dataset.csv" -Key "accomodation/appeal-information-list/year=2025/quarter=01/month=1/server=AGVS-My/Appeals_Information_Dataset.csv"
-```
-
----
-
-### **Data Schema Relationships**
-The ingestion system ensures the following relationships:
-- `StudentID` links across all three datasets
-- Referential integrity maintained by enforcing primary/foreign keys
-- Future extensions will include relationship with `AccommodationStatusLogs.csv`
-
-Entity Relationship View:
-- Student (1) → (M) Accommodation Letters
-- Student (1) → (M) Appeals
 
 ---
+### **Results and Insights**
+- Successfully created a remote virtual server to simulate UCW Academics operations and designed an organized S3 data lake for long-term data storage.
+- Implemented automated data ingestion using Windows PowerShell on AWS EC2, verifying quarterly ingestion rates for instructor, student, and department data.
 
-### **Data Profiling with AWS Glue DataBrew**
-Each dataset was profiled using **AWS Glue DataBrew** to assess quality:
-- **Total Rows**: 50
-- **Missing Cells**: 0 (100% valid data)
-- **Duplicates**: None detected
-- **Data Types**: 8 string fields per dataset
-
-**Profile Jobs**:
-- `acad-stud-info-ds-prf-my`
-- `acad-acomm-lst-prf-my`
-- `acad-app-info-list-prf-my`
-
-**Profiling Outputs**:
-- Column-level statistics
-- Summary of correlations
-- Data quality metrics (e.g., invalid, outliers)
-
----
-
-### **Architecture Overview**
-![Architecture Diagram](./images/academic-data-ingestion-diagram.png)
-
-**Highlights**:
-- Ingestion from general and web servers (EC2)
-- Two separate availability zones for redundancy
-- Ingested into academic data lake S3 bucket
-- Profiled and prepared through AWS Glue
 
 ---
 
