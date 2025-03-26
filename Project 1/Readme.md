@@ -10,7 +10,7 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 
 ---
 
-## Major Dataset Columns and Definitions
+## Dataset
 
 - **ProjectId** – Unique code assigned to each capital project.  
 - **ProjectProgramName** – Name or title of the project being proposed.  
