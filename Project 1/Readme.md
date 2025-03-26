@@ -24,7 +24,6 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
 
 ## Design
 ![Preview](images/design.png)
-![Preview](images/design.png)
 
 ---
 
@@ -40,12 +39,16 @@ To design and implement a robust Data Analytics Platform (DAP) using AWS that tr
      - Distribution across service categories  
      - Budget totals and correlations  
      - Frequency of community-priority projects
+       ![Preview](images/PRofilereport1.png)
+       ![Preview](images/PRofilereport.png)
+      ![Preview](images/PRofileoverview.png)
 
 3. **Data Visualization**  
    - Create visual aids:  
      - Bar charts for project distribution  
      - Pie charts for category-wise proportions  
      - Heatmaps to show budget correlations
+       ![Preview](images/Value%20distribution.png)
 
 4. **Insights and Findings**  
    - Parks & Public Spaces had the highest requests (113).  
