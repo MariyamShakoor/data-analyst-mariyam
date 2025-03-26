@@ -1,3 +1,5 @@
+These projects represent a progressive series of learning and practical implementation as part of the Cloud Computing Technologies course during my MBA at University Canada West, conducted under the supervision of Dr. Mahmood Mortazavi Dehkordi. Each phase reflects a hands-on application of cloud-native tools to address real-world data management challenges in academic and municipal domains, reinforcing both technical proficiency and strategic thinking in cloud-based architecture and data governance.
+
 # [Project 1: Descriptive Analysis at City of Vancouver](./Project%201/)
 This project conducted a descriptive analysis of City of Vancouver’s2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget using AWS Glue DataBrew, uncovering trends in funding allocations, service category distributions, and community priorities. Key insights included a high volume of requests for Parks & Public Spaces, strong budget correlations, and high data quality, supporting informed financial planning and resource prioritization. 
 # [Project 2: Data Wrangling at City of Vancouver](./Project%205/)
@@ -11,8 +13,4 @@ This project implemented a secure, compliant academic data lake for UCW using AW
 # [Project 6: AWS Data Lake Architecture with Glue-based ETL and Cataloging at University Canada West](./Project%205/)
 This project established a scalable AWS data lake for academic accommodation records at UCW, integrating Glue-based ETL pipelines, Data Catalogs, and S3 partitioning strategies aligned with Procedure 5051p. The architecture also incorporates Elastic Beanstalk for log ingestion and monitoring, enabling secure, structured, and analytics-ready data infrastructure for accessibility services and academic governance.
 
-## 👨‍💼 Developed By
-[Your Name or Team Name]  
-[Institution or Organization Name]  
-March 2025
 
