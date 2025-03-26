@@ -1,4 +1,4 @@
-# Data Wrnagling
+# Data Wrangling
 
 ## Project Title:  
 **Data Wrangling and Transformation Using AWS Glue DataBrew for **
