@@ -115,7 +115,6 @@ UCW’s Accessibility Office, Registrar, and Academic Services benefit from:
 
 ---
 
-### **Conclusion**
-This automated data ingestion system for UCW’s academic accommodation datasets is a scalable, cloud-native solution. By leveraging EC2 for operational connectivity and S3 for lifecycle-enabled storage, combined with Glue DataBrew for validation, it creates a foundation for secure academic governance, accessibility monitoring, and data analytics.
+This automated data ingestion system for UCW’s academic accommodation datasets is a scalable, cloud-native solution. By leveraging EC2 for operational connectivity and S3 for lifecycle-enabled storage, it creates a foundation for secure academic governance, accessibility monitoring, and data analytics.
 
 
