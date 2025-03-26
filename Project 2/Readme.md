@@ -59,30 +59,50 @@ The implementation methodology for Phase 2 of the DAP project involved building 
 
     ![Preview](images/Picture5.png)
 
-    - Highlighted projects with >10% partner contribution to explore public-private collaborations.
+  - Highlighted projects with >10% partner contribution to explore public-private collaborations.
 
-      ![Preview](images/Picture6.png)
+    ![Preview](images/Picture6.png)
       
 
 #### 🔐 **2. Data Security using AWS KMS and S3 Encryption**
 - Created a **symmetric key** using **AWS Key Management Service (KMS)**.
 - Assigned administrative and usage permissions to IAM role `LabRole`.
 - Updated encryption settings for all S3 zones:
-  - Raw: `budgetrequest-raw-my`
+  - Raw: `budgetrequest-raw-my`   
   - Transformed: `budgetrequest-trf-my`
   - Curated: `budgetrequest-cur-my`
+
+     ![Preview](images/key.png)
+
+    
 - Ensured data is encrypted at rest using the custom key during upload and decrypted during access.
 - Enabled **S3 versioning** for data protection against accidental deletions or overwrites.
 - Configured **replication rules** to backup data to cross-region buckets while preserving encryption and versioning.
 
+ ![Preview](images/replication.png)
+
 #### ✅ **3. Data Governance with AWS Glue Studio (ETL & Quality Checks)**
 - Created a visual ETL job `budgetrequest-QC-My` to implement data quality validation on the raw dataset.
+
+![Preview](images/ETL.png)
+
+
 - Applied built-in transformations for:
   - **Completeness**: Required ≥95% non-null values in `Service Category 3`
   - **Uniqueness**: Ensured ≥99% uniqueness in `Project/Program Name`
+
+   ![Preview](images/governance.png)
+
+  
 - Used **Conditional Router** to split rows based on quality checks:
   - Passed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Passed/`
+
+   ![Preview](images/passed%20folder.png)
+  
   - Failed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Failed/`
+
+  ![Preview](images/failed%20folder.png)
+  
 - Cleaned out helper columns and optimized output files using **Autobalance Processing**.
 
 #### 📈 **4. Monitoring and Controlling with CloudWatch and CloudTrail**
@@ -90,22 +110,13 @@ The implementation methodology for Phase 2 of the DAP project involved building 
   - S3 metrics: `BucketSizeBytes`, `NumberOfObjects`
   - AWS Glue JobRun metrics: execution time, success/failure count
   - Billing thresholds with custom alerts and notification subscriptions
+
+  ![Preview](images/dashboard.png)
+
+  
 - Set alarm thresholds (e.g., 400K bucket size) and configured alert delivery to `notification_for_team` email list.
 - **CloudTrail** configured to track API and user actions, storing logs securely in:
   - `s3://aws-cloudtrail-logs-878223708074-b9bac22d/...`
-
-#### 💸 **5. Cost Optimization (Gap Analysis using AWS Well-Architected Framework)**
-- Conducted a gap analysis against best practices:
-  - **Right-Sizing**: Identified over-provisioned compute resources
-  - **Elasticity**: Lack of autoscaling policies for variable workloads
-  - **Storage Tiers**: Data stored only in S3 Standard
-  - **Reserved Instances**: On-demand usage with no cost savings strategy
-  - **Monitoring**: Lack of AWS-native budget tools
-- **Recommended Improvements:**
-  - Use AWS Cost Explorer and Trusted Advisor for right-sizing and usage pattern review
-  - Enable S3 Intelligent-Tiering and Lifecycle Rules for storage
-  - Reserve Instances or Savings Plans for consistent workloads
-  - Implement AWS Budgets and Cost Anomaly Detection for financial transparency
 
 ### ✅ **Tools and Technologies**
 - **AWS Glue**, **Glue Studio**, **Athena**, **S3**, **KMS**, **CloudWatch**, **CloudTrail**, **IAM**
@@ -123,4 +134,3 @@ The implementation methodology for Phase 2 of the DAP project involved building 
 
 ---
 
-> 📌 _Note: Replace all placeholder images in your GitHub repository with AWS console screenshots for documentation completeness._
