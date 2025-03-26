@@ -1,4 +1,5 @@
-#Data Wrangling
+##**Data Wrangling**
+## Project Title: Descriptive Analysis of 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver 
 
 ## Project Description
 This project involves performing descriptive analysis on a municipal capital budget request dataset to uncover trends, service category distributions, and funding patterns using AWS Glue DataBrew.
@@ -6,7 +7,7 @@ This project involves performing descriptive analysis on a municipal capital bud
 ---
 
 ### **Objective**  
-To design and implement a robust Data Analytics Platform (DAP) using AWS that transforms raw municipal budget data into structured, high-quality datasets for analysis, forecasting, and visualization. The goal is to uncover trends in funding allocations, evaluate financial priorities across service categories, and support informed decision-making by transforming raw budget data into structured insights that highlight long-term capital planning and financial sustainability.
+To design and implement a robust Data Analytics Platform (DAP) using AWS that transforms raw multi-year captial project budget data into structured, high-quality datasets for analysis, forecasting, and visualization. The goal is to uncover trends in funding allocations, evaluate financial priorities across service categories, and support informed decision-making by transforming raw budget data into structured insights that highlight long-term capital planning and financial sustainability.
 
 ---
 
