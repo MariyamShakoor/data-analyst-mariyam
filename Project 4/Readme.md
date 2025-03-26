@@ -63,8 +63,8 @@ University Canada West manages sensitive academic information including accessib
 ## Design:
 
  ![Preview](images/design.png)
- 
- This design is from draw.io
+
+  - This image is generated from draw.io
 ---
 
 ## Methodology:
