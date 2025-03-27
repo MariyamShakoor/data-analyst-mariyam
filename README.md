@@ -2,6 +2,10 @@
 
 These projects represent a progressive series of learning and practical implementation as part of the Cloud Computing Technologies course during my MBA at University Canada West, conducted under the supervision of Dr. Mahmood Mortazavi Dehkordi. Each phase reflects a hands-on application of cloud-native tools to address real-world data management challenges in academic and municipal domains, reinforcing both technical proficiency and strategic thinking in cloud-based architecture and data governance.
 
+## 🧭 Navigation Guide
+
+- **Click on any project title** below to view detailed information and implementation steps.
+- **To return to this main portfolio page**, use the **"Back"** link provided at the bottom of each project page.
 
 # [Project 1: Descriptive Analysis at City of Vancouver](./Project%201/)
 This project conducted a descriptive analysis of City of Vancouver’s2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget using AWS Glue DataBrew, uncovering trends in funding allocations, service category distributions, and community priorities. Key insights included a high volume of requests for Parks & Public Spaces, strong budget correlations, and high data quality, supporting informed financial planning and resource prioritization. 
