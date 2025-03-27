@@ -67,10 +67,12 @@ Partitioning Strategy:
     This ETL is for Appeals_Information_Dataset
     
  - Partitioned Parquet outputs in S3
+   
 
     ![Preview](images/studsys.png)
 
-    - This output shows Student_Information_Dataset partitioned for Programs      
+    - This output shows Student_Information_Dataset partitioned for Programs
+          
   
     ![Preview](images/appealsys.png)
 
