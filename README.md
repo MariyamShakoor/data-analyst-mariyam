@@ -12,5 +12,7 @@ This project establishes a secure and version-controlled automated data ingestio
 This project implemented a secure, compliant academic data lake for UCW using AWS S3, with KMS encryption, versioning, and replication across raw, transformed, and curated layers to protect sensitive accommodation data. The architecture ensures confidentiality, integrity, and availability of student records, aligning with Procedure 5051p and enabling future-ready academic data governance.
 # [Project 6: AWS Data Lake Architecture with Glue-based ETL and Cataloging at University Canada West](./Project%205/)
 This project established a scalable AWS data lake for academic accommodation records at UCW, integrating Glue-based ETL pipelines, Data Catalogs, and S3 partitioning strategies aligned with Procedure 5051p. The architecture also incorporates Elastic Beanstalk for log ingestion and monitoring, enabling secure, structured, and analytics-ready data infrastructure for accessibility services and academic governance.
+# [AWS Academy Cloud Foundations Course Completion Badge](./Project%205/)
+  This digital badge is shows that I have completed the AWS Academy Cloud Foundations course.
 
 
