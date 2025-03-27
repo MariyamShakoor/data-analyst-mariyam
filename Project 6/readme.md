@@ -1,25 +1,25 @@
 # Project 2: AWS Data Lake Architecture with Glue-based ETL and Cataloging
-## Project Title:  
+## Project Title
 **AWS Data Lake Architecture for Academic Records using Glue-based ETL and Elastic Beanstalk Logging in Academic Accommodation for Students with Accessibility Needs (5051p) at UCW**
 
 ---
 
-## Objective:  
+## Objective
 To develop an automated data lake architecture for managing academic datasets, with partitioned ETL pipelines and log ingestion using AWS Glue, S3, and Elastic Beanstalk, supporting scalable storage, transformation, and future visualization.
 
 ---
 
-## Background:  
+## Background
 Managing academic data such as student information, accommodation letters, and appeal records requires scalable ETL processing, reliable storage, and secure access for the Academic Accommodation for Students with Accessibility Needs procedure in University Canada West. Traditional systems often lack partitioning, visibility, and traceability. This project addresses those gaps using AWS-native services to automate ingestion, cleaning, cataloging, and secure delivery of data for compliance and decision-making.
 
 ---
 
-## Dataset:  
+## Dataset
 1. **Student_Information_Dataset** – Includes student profiles, enrollment, program details, disability status, and advisor assignments.
 2. **Academic_Accommodation_Letter_Dataset** – Contains approved accommodations, letter issuance/expiry, implementation status, and compliance.
 3. **Appeals_Information_Dataset** – Tracks appeal types, decisions, resolutions, and follow-up requirements.
 
-Partitioning Strategy:  
+Partitioning Strategy
 - Student dataset: Partitioned by list of `Program`  
 - Accommodation letters: Partitioned by status for `Approved Accommodations`  
 - Appeals: Partitioned by status for `Follow-up Action Required`
@@ -34,7 +34,7 @@ Partitioning Strategy:
 
 ---
 
-## Methodology:  
+## Methodology
 - Create ETL pipelines using AWS Glue (Visual Jobs) for each dataset.
 - Transform schemas, filter records, summarize insights, and convert to Parquet  
 - Use AWS Glue Data Catalog for schema registration.
@@ -42,7 +42,7 @@ Partitioning Strategy:
 - Ingest web logs using AWS Elastic Beanstalk with log export to S3.
 - Monitor job health and outputs using Glue metrics and S3 folder structures.
 
-## Tools and Technologies:  
+## Tools and Technologies
 - **ETL & Summarization:** AWS Glue (Visual, PySpark)  
 - **Storage:** Amazon S3 (`academics-trf-my`, `academics-cur-my`)  
 - **Data Cataloging:** AWS Glue Crawlers & Data Catalog  
@@ -50,7 +50,7 @@ Partitioning Strategy:
 - **Monitoring:** S3 object structure, Glue job metrics  
 - **Planned Visuals:** Amazon QuickSight for further analysis
 
-## Deliverables:  
+## Deliverables
 - Fully functional AWS Glue ETL pipelines for three datasets
   
   ![Preview](images/student%20etl.png)
@@ -97,7 +97,7 @@ Partitioning Strategy:
     
 - Documented data flow, security settings, and folder structure  
 
-## Timeline:  
+## Timeline
 | Phase                            | Timeline             |
 |----------------------------------|-----------------------|
 | Requirement Analysis             | Week 1                |
