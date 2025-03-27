@@ -29,7 +29,6 @@ Partitioning Strategy:
 ## Design: 
 
  ![Preview](images/design.png)
-
   - This image is generated from draw.io
 
 ---
@@ -54,25 +53,24 @@ Partitioning Strategy:
 - Fully functional AWS Glue ETL pipelines for three datasets
   
   ![Preview](images/student%20etl.png)
-
-  - This ETL is for Student_Information_Dataset
-    
+  
+  - This image shows ETL is for Student_Information_Dataset    
 
     ![Preview](images/accometl.png)
 
-   This ETL is for Academic_Accommodation_Letter_Dataset
+  - This image shows  ETL is for Academic_Accommodation_Letter_Dataset
     
 
     ![Preview](images/appealetl.png)
 
-    This ETL is for Appeals_Information_Dataset
+  - This image shows  ETL is for Appeals_Information_Dataset
     
  - Partitioned Parquet outputs in S3
    
 
     ![Preview](images/studsys.png)
 
-    - This output shows Student_Information_Dataset partitioned for Programs
+    - This image shows Student_Information_Dataset partitioned for Programs
           
   
     ![Preview](images/appealsys.png)
