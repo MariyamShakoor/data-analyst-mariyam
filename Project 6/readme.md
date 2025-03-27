@@ -59,30 +59,26 @@ Partitioning Strategy:
 
     ![Preview](images/accometl.png)
 
-  - This ETL is for Academic_Accommodation_Letter_Dataset
+   This ETL is for Academic_Accommodation_Letter_Dataset
     
 
     ![Preview](images/appealetl.png)
 
-  - This ETL is for Appeals_Information_Dataset
-
+    This ETL is for Appeals_Information_Dataset
     
  - Partitioned Parquet outputs in S3
 
     ![Preview](images/studsys.png)
 
-    - This output shows Student_Information_Dataset partitioned for Programs
-      
+    - This output shows Student_Information_Dataset partitioned for Programs      
   
     ![Preview](images/appealsys.png)
 
-    - This output shows Appeals_Information_Dataset partitioned for Followupaction required status
-      
+    - This output shows Appeals_Information_Dataset partitioned for Followupaction required status      
 
     ![Preview](images/acosys.png)
 
-    - This output shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status
-      
+    - This output shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status      
     
 - Glue Data Catalog tables for queryable access  
 - Beanstalk-deployed Python web app for user logging
@@ -90,14 +86,12 @@ Partitioning Strategy:
   ![Preview](images/beanstalk.jpeg)
 
   - This image is generated from draw.io
-
     
 - Log storage in S3 for user behavior analysis
 
   ![Preview](images/log.png)
 
-  - This image is generated from draw.io
-    
+  - This image is generated from draw.io    
     
 - Documented data flow, security settings, and folder structure  
 
