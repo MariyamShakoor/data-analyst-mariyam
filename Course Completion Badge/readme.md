@@ -1,2 +1,3 @@
 ##Course Completion Badge
- ![Preview](images/badge.png)
+
+![Preview](images/badge.png)
