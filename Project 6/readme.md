@@ -29,7 +29,8 @@ Partitioning Strategy:
 ## Design: 
 
  ![Preview](images/design.png)
-  - This image is generated from draw.io
+ 
+ - This image is generated from draw.io
 
 ---
 
@@ -75,18 +76,18 @@ Partitioning Strategy:
   
     ![Preview](images/appealsys.png)
 
-    - This output shows Appeals_Information_Dataset partitioned for Followupaction required status      
+    - This image shows Appeals_Information_Dataset partitioned for Followupaction required status      
 
     ![Preview](images/acosys.png)
 
-    - This output shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status      
+    - This image shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status      
     
 - Glue Data Catalog tables for queryable access  
 - Beanstalk-deployed Python web app for user logging
 
   ![Preview](images/beanstalk.jpeg)
 
-  - This image is generated from draw.io
+  - This image shows effective deployment of Elastic Beanstalk server
     
 - Log storage in S3 for user behavior analysis
 
