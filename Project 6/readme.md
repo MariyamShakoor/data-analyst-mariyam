@@ -1,4 +1,4 @@
-# AWS Data Lake Architecture with Glue-based ETL and Cataloging
+# Project 2: AWS Data Lake Architecture with Glue-based ETL and Cataloging
 ## Project Title:  
 **AWS Data Lake Architecture for Academic Records using Glue-based ETL and Elastic Beanstalk Logging in Academic Accommodation for Students with Accessibility Needs (5051p) at UCW**
 
@@ -48,34 +48,41 @@ Partitioning Strategy:
 - **Data Cataloging:** AWS Glue Crawlers & Data Catalog  
 - **Web Application Logs:** AWS Elastic Beanstalk (Python)  
 - **Monitoring:** S3 object structure, Glue job metrics  
-- **Planned Visuals:** Amazon QuickSight  
+- **Planned Visuals:** Amazon QuickSight for further analysis
 
 ## Deliverables:  
 - Fully functional AWS Glue ETL pipelines for three datasets
   ![Preview](images/student%20etl.png)
 
   - This ETL is for Student_Information_Dataset
+    
 
     ![Preview](images/accometl.png)
 
   - This ETL is for Academic_Accommodation_Letter_Dataset
+    
 
     ![Preview](images/appealetl.png)
 
-  - This ETL is for Appeals_Information_Dataset   
+  - This ETL is for Appeals_Information_Dataset
+
+    
  - Partitioned Parquet outputs in S3
 
     ![Preview](images/studsys.png)
 
     - This output shows Student_Information_Dataset partitioned for Programs
+      
   
     ![Preview](images/appealsys.png)
 
     - This output shows Appeals_Information_Dataset partitioned for Followupaction required status
+      
 
     ![Preview](images/acosys.png)
 
     - This output shows Academic_Accommodation_Letter_Datase partitioned for approved accomodation status
+      
     
 - Glue Data Catalog tables for queryable access  
 - Beanstalk-deployed Python web app for user logging
@@ -90,6 +97,7 @@ Partitioning Strategy:
   ![Preview](images/log.png)
 
   - This image is generated from draw.io
+    
     
 - Documented data flow, security settings, and folder structure  
 
