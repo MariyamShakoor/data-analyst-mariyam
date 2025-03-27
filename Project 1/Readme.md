@@ -1,8 +1,8 @@
 
-# Descriptive Analysis
+# Project 1: Descriptive Analysis
 ## Project Title: Descriptive Analysis of 2024 Multi-Year Capital Project Budget requests and Capital Expenditure Budget at City of Vancouver 
-## Project Description: 
-- This project involves performing descriptive analysis on a municipal capital budget request dataset to uncover trends, service category distributions, and funding patterns using AWS Glue DataBrew.
+###  Project Description: 
+#### This project involves performing descriptive analysis on a municipal capital budget request dataset to uncover trends, service category distributions, and funding patterns using AWS Glue DataBrew.
 ---
 
 ### **Objective**  
