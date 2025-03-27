@@ -98,10 +98,13 @@ The implementation methodology for Phase 2 of the DAP project involved building 
   - Passed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Passed/`
 
    ![Preview](images/passed%20folder.png)
+
+   - This image shows Passed folder in S3 storage bucket
   
   - Failed rows: saved to `s3://budgetrequest-trf-my/Quality_Check/Failed/`
 
   ![Preview](images/failed%20folder.png)
+  - This image shows Failed folder in S3 storage bucket
   
 - Cleaned out helper columns and optimized output files using **Autobalance Processing**.
 
@@ -111,7 +114,9 @@ The implementation methodology for Phase 2 of the DAP project involved building 
   - AWS Glue JobRun metrics: execution time, success/failure count
   - Billing thresholds with custom alerts and notification subscriptions
 
-  ![Preview](images/dashboard.png)
+    ![Preview](images/dashboard.png)
+
+     - This image shows CloudWatch dashboard
 
   
 - Set alarm thresholds (e.g., 400K bucket size) and configured alert delivery to `notification_for_team` email list.
