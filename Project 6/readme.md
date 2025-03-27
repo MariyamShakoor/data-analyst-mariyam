@@ -52,6 +52,7 @@ Partitioning Strategy:
 
 ## Deliverables:  
 - Fully functional AWS Glue ETL pipelines for three datasets
+  
   ![Preview](images/student%20etl.png)
 
   - This ETL is for Student_Information_Dataset
